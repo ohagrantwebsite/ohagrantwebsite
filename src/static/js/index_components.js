@@ -1,5 +1,5 @@
 
-var app = angular.module("oha.routes", ['ui.router', 'ngAnimate']);
+var app = angular.module("oha_index.components", ['ui.router', 'ngAnimate']);
 
 /*
 * Configurations for states for ui-router.
