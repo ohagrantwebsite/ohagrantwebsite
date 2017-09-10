@@ -37,10 +37,8 @@
   <body>
     <div ng-app="oha_index">
 
-    <div class="su-grid">
-
       <div class="row">
-        <div class="ui container">
+        <div class="container">
 
     <div id="OHAimg">
     <img src="static/images/OHA.jpg" width="150" height="65" style="float: left;" />
@@ -58,7 +56,6 @@
     </h1>
     </div>
 
-    </div>
   </div>
 
 </div>
@@ -85,15 +82,37 @@
       </div>
     </div>
 
+<div class="tutorialvideo">
+<div class="column">
+<h2><u>Why use this app?</u></h2>
+<iframe width="480" height="270" src="https://www.youtube.com/embed/4DGyfeCHZWE?rel=0"
+frameborder="0" allowfullscreen></iframe>
+</div>
+<div class="column">
+<h2><u>Tutorial Video</u></h2>
+<iframe width="480" height="270" src="https://www.youtube.com/embed/kxnHiFZfLfk?rel=0"
+frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<hr></hr>
+
+    <div class="frontpagebody">
     <ul>
       <li>
-        <h2><u>News and Updates</u></h2>
+        <h3><u>News and Updates</u></h3>
         <p>
           The program is expected to be complete around Septemeber 17, 2017.
         </p>
       </li>
       <li>
-        <h2><u>About this website</u></h2>
+      <h3><u>About Us</u></h3>
+      <p>
+      This website is created by team Lucio for the HACC of 2017. For more information
+      please check our <a href="http://127.0.0.1:5000/contactus">Contact Us page</a>
+      </p>
+      </li>
+      <li>
+        <h3><u>About this website</u></h3>
         <p>
           This webiste is a helpful way for the public and government officials to
           search through different grants and sponsorships. It includes previous
@@ -102,15 +121,9 @@
           which grant applies to them.
         </p>
       </li>
-      <li>
-      <h2><u>About Us</u></h2>
-      <p>
-      This website is created by team Lucio for the HACC of 2017. For more information
-      please check out <a href="http://hacc.hawaii.gov">Official HACC website</a>
-      and <a href="https://github.com/HACC17/Lucio">Github page</a>
-      </p>
-      </li>
     </ul>
+    </div>
+</div>
 
     <div class="container" role="main">
         <div class ="starter-template">
@@ -150,4 +163,19 @@
     -->
     </div>
   </body>
+
+  <style>
+.tutorialvideo {
+    column-count: 2;
+    column-gap: 40px;
+    padding-bottom: 25px;
+}
+
+.frontpagebody {
+  column-count: 2;
+  column-gap: 10px;
+  padding-top: 25px;
+}
+</style>
+
 </html>
