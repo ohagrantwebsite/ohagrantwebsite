@@ -1,4 +1,4 @@
-var app = angular.module("oha_index",
+var app = angular.module("oha",
         // Dependencies
         ['ui.bootstrap',
          'satellizer',
@@ -6,9 +6,12 @@ var app = angular.module("oha_index",
          'angularUtils.directives.dirPagination',
          'slickCarousel',
          'ngSanitize',
-         'oha_index.components',
+         'oha.routes',
+         'oha.index'
+
        ],
        function($interpolateProvider) {
+            console.log("TEST");
             $interpolateProvider.startSymbol('[{');
             $interpolateProvider.endSymbol('}]');
   });
