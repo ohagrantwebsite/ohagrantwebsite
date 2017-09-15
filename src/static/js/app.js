@@ -1,17 +1,16 @@
 var app = angular.module("oha",
         // Dependencies
         ['ui.bootstrap',
-         'satellizer',
          'angularModalService',
          'angularUtils.directives.dirPagination',
-         'slickCarousel',
          'ngSanitize',
          'oha.routes',
-         'oha.index'
+         'oha.listings',
+       ]);
 
-       ],
-       function($interpolateProvider) {
-            console.log("TEST");
+
+app.config(function($interpolateProvider) {
+            console.log("TEST!!");
             $interpolateProvider.startSymbol('[{');
             $interpolateProvider.endSymbol('}]');
-  });
+       });
