@@ -40,8 +40,7 @@
   </head>
 
   <body>
-    <div ng-app="oha">
-      <div ng-controller="testctrl"></div>
+
       <div class="su-grid">
 
         <div class="row">
@@ -90,89 +89,9 @@
         </div>
       </div>
 
-      <div class="wrap">
-        <div class="search">
-          <input type="text" class="searchTerm" placeholder="Search">
-          <button type="submit">
-            <i class="fa fa-search"></i>
-          </button>
-        </div>
+      <div ng-app="oha">
+        <div ui-view></div>
       </div>
-
-      <table class="compact celled definition table">
-        <thead class="full-width">
-          <tr>
-          <th>Analyze</th>
-          <th>Compare</th>
-          <th>Fiscal Year</th>
-          <th>Grant Type</th>
-          <th>Organization</th>
-          <th>Project</th>
-          <th>Amount</th>
-          <th>Location</th>
-          <th>Strategic Priority</th>
-          <th>Strategic Results</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="collapsing">
-              <div class="fitted slider checkbox">
-                <input type="checkbox"> <label></label>
-              </div>
-            </td>
-            <td class="collapsing">
-              <div class="fitted slider checkbox">
-                <input type="checkbox"> <label></label>
-              </div>
-            </td>
-            <td>2016</td>
-            <td>Ahahui</td>
-            <td>Hawaii Book and Music Festival</td>
-            <td>Alana Hawaiian Culture Program at the 2016 Hawai'i Book and Music Festival</td>
-            <td>$7000</td>
-            <td>Oahu</td>
-            <td>Culture</td>
-            <td>Value History and Culture</td>
-          </tr>
-          <tr>
-          <td class="collapsing">
-            <div class="fitted slider checkbox">
-              <input type="checkbox"> <label></label>
-            </div>
-          </td>
-          <td class="collapsing">
-            <div class="fitted slider checkbox">
-              <input type="checkbox"> <label></label>
-            </div>
-          </td>
-          <td>2016</td>
-          <td>Ahahui</td>
-          <td>Kai Loa, Inc</td>
-          <td>Makahiki Kuilima 2016</td>
-          <td>$7000</td>
-          <td>Oahu</td>
-          <td>Culture</td>
-          <td>Participate in Culture</td>
-          </tr>
-        </tbody>
-      </table>
-      <button class="button">Analyze</button>
-      <button class="button">Compare</button>
-
-      <div class="container" role="main">
-          <div class ="starter-template">
-          <div class="row">
-          {% raw %}
-          <div class="col-md-12">
-              <input type="texta" ng-model="inputText"></input>
-              <hr>
-              [{inputText}]
-          </div>
-          {% endraw %}
-        </div>
-        </div>
-      </div><!-- /.container -->
 
       <footer>
         <div style="text-align:center" class="footer">
@@ -189,7 +108,7 @@
 
 
 
-    </div>
+
       <!-- Bootstrap core JavaScript
       ================================================== -->
       <!-- Placed at the end of the document so the pages load faster -->

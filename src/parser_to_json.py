@@ -38,6 +38,3 @@ def filter_by_param(df, param=None, operator=None, value=None):
         elif upper != None and lower != None:
             temp_df = df[df[param] <= upper]
             return temp_df[df[param] >= lower]
-
-
-parse_excel('OHA Test Data Grant_2013_2014_2015_2016_Table.xlsx', 'Fiscal Year@range@2013-2014')
