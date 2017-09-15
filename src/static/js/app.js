@@ -10,7 +10,6 @@ var app = angular.module("oha",
 
 
 app.config(function($interpolateProvider) {
-            console.log("TEST!!");
             $interpolateProvider.startSymbol('[{');
             $interpolateProvider.endSymbol('}]');
        });

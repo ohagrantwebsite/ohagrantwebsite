@@ -1,60 +1,33 @@
-<table class="compact celled definition table">
-  <thead class="full-width">
-    <tr>
-    <th>Analyze</th>
-    <th>Compare</th>
-    <th>Fiscal Year</th>
-    <th>Grant Type</th>
-    <th>Organization</th>
-    <th>Project</th>
-    <th>Amount</th>
-    <th>Location</th>
-    <th>Strategic Priority</th>
-    <th>Strategic Results</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="collapsing">
-        <div class="fitted slider checkbox">
-          <input type="checkbox"> <label></label>
-        </div>
-      </td>
-      <td class="collapsing">
-        <div class="fitted slider checkbox">
-          <input type="checkbox"> <label></label>
-        </div>
-      </td>
-      <td>2016</td>
-      <td>Ahahui</td>
-      <td>Hawaii Book and Music Festival</td>
-      <td>Alana Hawaiian Culture Program at the 2016 Hawai'i Book and Music Festival</td>
-      <td>$7000</td>
-      <td>Oahu</td>
-      <td>Culture</td>
-      <td>Value History and Culture</td>
-    </tr>
-    <tr>
-    <td class="collapsing">
-      <div class="fitted slider checkbox">
-        <input type="checkbox"> <label></label>
-      </div>
-    </td>
-    <td class="collapsing">
-      <div class="fitted slider checkbox">
-        <input type="checkbox"> <label></label>
-      </div>
-    </td>
-    <td>2016</td>
-    <td>Ahahui</td>
-    <td>Kai Loa, Inc</td>
-    <td>Makahiki Kuilima 2016</td>
-    <td>$7000</td>
-    <td>Oahu</td>
-    <td>Culture</td>
-    <td>Participate in Culture</td>
-    </tr>
-  </tbody>
-</table>
-<button class="button">Analyze</button>
-<button class="button">Compare</button>
+<div ng-controller="displaytable" >
+
+
+  <table ng-if="has_results" class="compact celled definition table">
+    <thead class="full-width">
+      <tr>
+      <th>Analyze</th>
+      <th>Compare</th>
+      <th ng-repeat="heading in headings">[{heading}]</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="grant in grants">
+        <td class="collapsing">
+          <div class="fitted slider checkbox">
+            <input type="checkbox"> <label></label>
+          </div>
+        </td>
+        <td class="collapsing">
+          <div class="fitted slider checkbox">
+            <input type="checkbox"> <label></label>
+          </div>
+        </td>
+        <td ng-repeat="col in grant track by $index">[{ grant[headings[$index]] }]</td>
+      </tr>
+    </tbody>
+  </table>
+  <button ng-if="has_results" lass="button">Analyze</button>
+  <button ng-if="has_results" class="button">Compare</button>
+
+  <div ng-if="!has_results" class="">No Results Found</div>
+
+</div>
