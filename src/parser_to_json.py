@@ -3,14 +3,16 @@ import pandas
 def parse_excel(filename, query):
     fn = "data/" + filename
     df = pandas.read_excel(open(fn, 'rb'))
-    split_query = query.split('@')
+    result = df
+    #split_query = query.split('@')
 
-    if split_query[1] == 'range':
-        split_query[2] = split_query[2].split('-')
+    #if split_query[1] == 'range':
+    #    split_query[2] = split_query[2].split('-')
 
-    result = filter_by_param(df, param=split_query[0], operator=split_query[1], value=split_query[2])
-    print(result)
-    return result.to_json()
+    #result = filter_by_param(df, param=split_query[0], operator=split_query[1], value=split_query[2])
+
+    result_json = result.to_json(orient='table')
+    return result_json
 
 def filter_by_param(df, param=None, operator=None, value=None):
 
@@ -38,6 +40,3 @@ def filter_by_param(df, param=None, operator=None, value=None):
         elif upper != None and lower != None:
             temp_df = df[df[param] <= upper]
             return temp_df[df[param] >= lower]
-
-
-parse_excel('OHA Test Data Grant_2013_2014_2015_2016_Table.xlsx', 'Fiscal Year@range@2013-2014')

@@ -1,0 +1,33 @@
+<div ng-controller="displaytable" >
+
+
+  <table ng-if="has_results" class="compact celled definition table">
+    <thead class="full-width">
+      <tr>
+      <th>Analyze</th>
+      <th>Compare</th>
+      <th ng-repeat="heading in headings">[{heading}]</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="grant in grants">
+        <td class="collapsing">
+          <div class="fitted slider checkbox">
+            <input type="checkbox"> <label></label>
+          </div>
+        </td>
+        <td class="collapsing">
+          <div class="fitted slider checkbox">
+            <input type="checkbox"> <label></label>
+          </div>
+        </td>
+        <td ng-repeat="col in grant track by $index">[{ grant[headings[$index]] }]</td>
+      </tr>
+    </tbody>
+  </table>
+  <button ng-if="has_results" lass="button">Analyze</button>
+  <button ng-if="has_results" class="button">Compare</button>
+
+  <div ng-if="!has_results" class="">No Results Found</div>
+
+</div>
