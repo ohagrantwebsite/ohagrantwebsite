@@ -1,4 +1,5 @@
 from flask import Flask,render_template, request
+import json
 import parser_to_json
 
 app = Flask(__name__)
@@ -20,22 +21,20 @@ def qa():
 def contactus():
     return render_template('contactus.html')
 
-@app.route('/loadtable', methods=['get'])
+@app.route('/loadtable', methods=['post'])
 def loadtable():
-    page = None
-    per_page = None
-    try:
-        page = int(request.args.get('page'))
-        per_page = int(request.args.get('per_page'))
-    except ValueError:
-        page = 1
-        per_page = 10
-    req = request.query_string
+    req = request.get_json()
+    page = req['page']
+    per_page = req['per_page']
+    filters = req['filters']
     filename = "OHA Test Data Grant_2013_2014_2015_2016_Table.xlsx"
-    dataframe = parser_to_json.parse_excel(filename, req, page, per_page)
+    dataframe = parser_to_json.parse_excel(filename, filters, page, per_page)
     return dataframe
 
-
+@app.route('/loadsearch', methods=['get'])
+def loadsearch():
+    filename = "OHA Test Data Grant_2013_2014_2015_2016_Table.xlsx"
+    return parser_to_json.get_dropdowns(filename)
 
 if __name__ == '__main__':
     app.run()
