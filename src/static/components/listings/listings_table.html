@@ -32,7 +32,7 @@
       </tr>
     </tbody>
   </table>
-  <button ng-if="has_results==1" class="button">Analyze</button>
+  <button ng-if="has_results==1" class="button" ng-click="open_analyze()">Analyze</button>
   <button ng-if="has_results==1" class="button">Compare</button>
 
   <div ng-if="has_results==0" class="">No Results Found</div>

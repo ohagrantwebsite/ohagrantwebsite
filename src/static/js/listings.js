@@ -1,7 +1,7 @@
 var app = angular.module("oha.listings", []);
 
 
-app.controller("displaytable", function($scope, $http){
+app.controller("displaytable", function($scope, $state, $http){
 
     $scope.headings = [];
     $scope.has_results = -1;
@@ -25,10 +25,15 @@ app.controller("displaytable", function($scope, $http){
     getResultsPage(1);
 
 
+    $scope.open_analyze = function() {
+        $state.go('visualizer');
+    }
+
+
     function getFilterDropdowns() {
         $http.get('/loadsearch').then(function(response) {
             response_data = response.data;
-            
+
 
 
         }, function(error) {
@@ -39,7 +44,6 @@ app.controller("displaytable", function($scope, $http){
 
 
     }
-
 
     function getResultsPage(pageNumber) {
           var data = {
@@ -63,6 +67,8 @@ app.controller("displaytable", function($scope, $http){
 
           });
     }
+
+
 
     $scope.pageChanged = function(newPage) {
       getResultsPage(newPage);

@@ -4,6 +4,8 @@ var app = angular.module("oha",
          'angularModalService',
          'angularUtils.directives.dirPagination',
          'ngSanitize',
+         'ui.router',
+         'ngAnimate',
          'oha.routes',
          'oha.listings',
        ]);

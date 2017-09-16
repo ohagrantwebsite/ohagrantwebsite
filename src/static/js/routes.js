@@ -8,11 +8,11 @@ var app = angular.module("oha.routes", ['ui.router', 'ngAnimate']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('');
+    $urlRouterProvider.otherwise('list');
 
     $stateProvider
     .state('list', {
-      url: '',
+      url: '/list',
       views: {
         '' : {
           templateUrl: 'static/components/listings/listings_wrapper.html',
@@ -24,13 +24,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
       })
 
     .state('visualizer', {
-      url: 'vis',
+      url: '/visualizer',
       views: {
         '' : {
           templateUrl: 'static/components/visualizer/visualizer_wrapper.html',
         },
         'plot@visualizer' : {
-          templateUrl: 'static/components/listings/visualizer_plot.html',
+          templateUrl: 'static/components/visualizer/visualizer_plot.html',
         },
       },
       })
