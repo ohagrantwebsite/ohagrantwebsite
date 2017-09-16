@@ -21,10 +21,22 @@ app.controller("displaytable", function($scope, $http){
               params: {
                   page: pageNumber,
                   per_page: 10,
+                  filters: [
+                            {
+                              column: 'None1',
+                              operator: 'None',
+                              value: 'None'
+                            },
+                            {
+                              column: 'None2',
+                              operator: 'None',
+                              value: 'None'
+                            }
+                            ]
                 }
-          }
+              }
 
-          $http.get('/loadtable', config).then(function(response) {
+          $http.post('/loadtable', config).then(function(response) {
             response_data = response.data;
             $scope.headings = response_data.schema
                               .fields.map(function(item) {
