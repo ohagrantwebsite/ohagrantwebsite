@@ -14,29 +14,41 @@ app.controller("displaytable", function($scope, $http){
         current: 1
     };
 
+    var filter = {
+                    'column' : 0,
+                    'operator' : 0,
+                    'value' : 0
+                  }
+
+    getFilterDropdowns();
+
     getResultsPage(1);
 
+
+    function getFilterDropdowns() {
+        $http.get('/loadsearch').then(function(response) {
+            response_data = response.data;
+            
+
+
+        }, function(error) {
+
+
+
+        });
+
+
+    }
+
+
     function getResultsPage(pageNumber) {
-          var config = {
-              params: {
+          var data = {
                   page: pageNumber,
                   per_page: 10,
-                  filters: [
-                            {
-                              column: 'None1',
-                              operator: 'None',
-                              value: 'None'
-                            },
-                            {
-                              column: 'None2',
-                              operator: 'None',
-                              value: 'None'
-                            }
-                            ]
-                }
+                  filters: []
               }
 
-          $http.post('/loadtable', config).then(function(response) {
+          $http.post('/loadtable', data).then(function(response) {
             response_data = response.data;
             $scope.headings = response_data.schema
                               .fields.map(function(item) {
@@ -55,6 +67,7 @@ app.controller("displaytable", function($scope, $http){
     $scope.pageChanged = function(newPage) {
       getResultsPage(newPage);
     };
+
 
 
 });

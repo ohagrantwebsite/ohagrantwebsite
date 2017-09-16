@@ -23,20 +23,18 @@ def contactus():
 
 @app.route('/loadtable', methods=['post'])
 def loadtable():
-    page = None
-    per_page = None
-    try:
-        page = int(request.form.get('page'))
-        per_page = int(request.form.get('per_page'))
-    except:
-        page = 1
-        per_page = 10
-    req = request.form.get('filters')
+    req = request.get_json()
+    page = req['page']
+    per_page = req['per_page']
+    filters = req['filters']
     filename = "OHA Test Data Grant_2013_2014_2015_2016_Table.xlsx"
-    dataframe = parser_to_json.parse_excel(filename, req, page, per_page)
+    dataframe = parser_to_json.parse_excel(filename, filters, page, per_page)
     return dataframe
 
-
+@app.route('/loadsearch', methods=['get'])
+def loadsearch():
+    filename = "OHA Test Data Grant_2013_2014_2015_2016_Table.xlsx"
+    return parser_to_json.get_dropdowns(filename)
 
 if __name__ == '__main__':
     app.run()
