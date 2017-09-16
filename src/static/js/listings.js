@@ -14,16 +14,16 @@ app.controller("displaytable", function($scope, $http){
         current: 1
     };
 
-    var config = {
-        params: {
-            page: 1,
-            per_page: 10,
-          }
-    }
     getResultsPage(1);
 
-
     function getResultsPage(pageNumber) {
+          var config = {
+              params: {
+                  page: pageNumber,
+                  per_page: 10,
+                }
+          }
+
           $http.get('/loadtable', config).then(function(response) {
             response_data = response.data;
             $scope.headings = response_data.schema
