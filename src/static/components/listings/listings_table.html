@@ -1,7 +1,7 @@
 <div ng-controller="displaytable" >
 
 
-  <table ng-if="has_results" class="compact celled definition table">
+  <table ng-if="has_results==1" class="compact celled definition table">
     <thead class="full-width">
       <tr>
       <th>Analyze</th>
@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="grant in grants">
+      <tr dir-paginate="grant in grants | itemsPerPage: grantsPerPage" total-items="totalGrants" current-page="pagination.current">
         <td class="collapsing">
           <div class="fitted slider checkbox">
             <input type="checkbox"> <label></label>
@@ -25,9 +25,26 @@
       </tr>
     </tbody>
   </table>
-  <button ng-if="has_results" lass="button">Analyze</button>
-  <button ng-if="has_results" class="button">Compare</button>
+  <button ng-if="has_results==1" class="button">Analyze</button>
+  <button ng-if="has_results==1" class="button">Compare</button>
 
-  <div ng-if="!has_results" class="">No Results Found</div>
+  <div ng-if="has_results==0" class="">No Results Found</div>
+  <div ng-if="has_results==1" role="main">
+      <div class="row">
+      <div class="col-md-6 col-md-offset-4 centered">
+          <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+      </div>
+    </div>
+  </div><!-- /.container -->
+
+  <div class="container" role="main">
+      <div class ="starter-template">
+      <div class="row">
+      <div class="col-md-12">
+      </div>
+    </div>
+    </div>
+  </div><!-- /.container -->
+
 
 </div>

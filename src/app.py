@@ -22,10 +22,18 @@ def contactus():
 
 @app.route('/loadtable', methods=['get'])
 def loadtable():
+    page = None
+    per_page = None
+    try:
+        page = int(request.args.get('page'))
+        per_page = int(request.args.get('per_page'))
+    except ValueError:
+        page = 1
+        per_page = 10
     req = request.query_string
     filename = "OHA Test Data Grant_2013_2014_2015_2016_Table.xlsx"
-
-    return parser_to_json.parse_excel(filename, req)
+    dataframe = parser_to_json.parse_excel(filename, req, page, per_page)
+    return dataframe
 
 
 
