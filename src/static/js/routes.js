@@ -23,5 +23,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
       },
       })
 
+    .state('visualizer', {
+      url: 'vis',
+      views: {
+        '' : {
+          templateUrl: 'static/components/visualizer/visualizer_wrapper.html',
+        },
+        'plot@visualizer' : {
+          templateUrl: 'static/components/listings/visualizer_plot.html',
+        },
+      },
+      })
 
     });
