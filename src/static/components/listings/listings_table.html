@@ -1,5 +1,12 @@
 <div ng-controller="displaytable" >
 
+  <div ng-if="has_results==1" role="main">
+      <div class="row">
+      <div class="col-md-6 col-md-offset-4 centered">
+          <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+      </div>
+    </div>
+  </div><!-- /.container -->
 
   <table ng-if="has_results==1" class="compact celled definition table">
     <thead class="full-width">
