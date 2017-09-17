@@ -62,31 +62,39 @@ app.controller("displaytable", function($scope, $state, $http){
 
 app.controller("searchctrl", function($scope, $state, $http){
 
-    $scope.ctrl = {};
+    $scope.dropdown_button_name = 'Select Field';
 
+    $scope.ctrl = {};
     $scope.ctrl.query = '';
     $scope.ctrl.msg = 'Search';
     $scope.ctrl.dataList = [];//getFilterDropdowns('Fiscal Year');
 
-    getFilterDropdowns('Fiscal Year');
+    $scope.dropdown_data = null;
 
-    function getFilterDropdowns(field) {
-        $http.get('/loadsearch').then(function(response) {
-            response_data = response.data;
-
-            if (response_data.hasOwnProperty(field)) {
-              console.log(response_data[field]);
-              $scope.ctrl.dataList = response_data[field];
-            }
-            else {
-              $scope.ctrl.dataList = [];
-            }
-        }, function(error) {
-
-
-
-        });
+    $scope.refresh_dropdown = function(field) {
+      response_data = $scope.dropdown_data;
+      if (response_data.hasOwnProperty(field)) {
+        $scope.ctrl.dataList = response_data[field];
+        $scope.ctrl.msg = field;
+        $scope.dropdown_button_name = field;
+      }
+      else {
+        $scope.ctrl.dataList = [];
+        $scope.ctrl.msg = field;
+        $scope.dropdown_button_name = field;
+      }
     }
 
 
+
+
+
+
+    $http.get('/loadsearch').then(function(response) {
+        $scope.dropdown_data = response.data;
+        $scope.refresh_dropdown('Project');
+        $scope.ctrl.msg = 'Search';
+    }, function(error) {
+
+    });
 });
