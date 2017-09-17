@@ -14,11 +14,7 @@ app.controller("displaytable", function($scope, $state, $http){
         current: 1
     };
 
-    var filter = {
-                    'column' : 0,
-                    'operator' : 0,
-                    'value' : 0
-                  }
+    $scope.current_filters = [];
 
 
 
@@ -34,7 +30,7 @@ app.controller("displaytable", function($scope, $state, $http){
                   per_page: 10,
                   filters: filters
               }
-
+          $scope.current_filters = filters;
           $http.post('/loadtable', data).then(function(response) {
             response_data = response.data;
             $scope.headings = response_data.schema
@@ -45,6 +41,8 @@ app.controller("displaytable", function($scope, $state, $http){
 
             $scope.totalGrants = response_data.Elements;
 
+
+
             $scope.has_results = 1;
           }, function(error) {
 
@@ -54,7 +52,8 @@ app.controller("displaytable", function($scope, $state, $http){
     $scope.getResultsPage(1, []);
 
     $scope.pageChanged = function(newPage) {
-      $scope.getResultsPage(newPage);
+      filters = $scope.current_filters;
+      $scope.getResultsPage(newPage, filters);
     };
 
 
