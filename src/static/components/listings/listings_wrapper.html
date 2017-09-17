@@ -9,42 +9,24 @@
 
   <div ui-view="table"></div> -->
 
-
   <style>
-  .container {
-      overflow: hidden;
-      background-color: #333;
-      font-family: Arial;
-  }
-
-  .container a {
-      float: left;
-      font-size: 16px;
+  /* Style The Dropdown Button */
+  .dropbtn {
+      background-color: black;
       color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-  }
-
-  .dropdown {
-      float: left;
-      overflow: hidden;
-  }
-
-  .dropdown .dropbtn {
-      cursor: pointer;
+      padding: 8px 10px;
       font-size: 16px;
       border: none;
-      outline: none;
-      color: black;
-      padding: 14px 16px;
-      background-color: inherit;
+      cursor: pointer;
   }
 
-  .container a:hover, .dropdown:hover .dropbtn {
-      background-color: red;
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+      position: relative;
+      display: inline-block;
   }
 
+  /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
       display: none;
       position: absolute;
@@ -54,55 +36,55 @@
       z-index: 1;
   }
 
+  /* Links inside the dropdown */
   .dropdown-content a {
-      float: none;
       color: black;
       padding: 12px 16px;
       text-decoration: none;
       display: block;
-      text-align: left;
   }
 
-  .dropdown-content a:hover {
-      background-color: #ddd;
-  }
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
 
-  .show {
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
       display: block;
+  }
+
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
   }
   </style>
 
-  <div class="container">
-    <a href="#home"><input type="text" class="searchTerm" placeholder="Search"></a>
-    <a href="#news"><button type="submit">Search
-      <i class="fa fa-search"></i>
-    </button></a>
-    <div class="dropdown">
-      <button class="dropbtn" onclick="myFunction()">Dropdown</button>
-      <div class="dropdown-content" id="myDropdown">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+  <div class="wrap">
+      <div class="dropdown">
+        <button class="dropbtn" onclick="myFunction()">Dropdown</button>
+        <div class="dropdown-content" id="myDropdown">
+          <a href="">Fiscal Year</a>
+          <a href="">Grant Type</a>
+          <a href="">Organization</a>
+          <a href="">Project</a>
+          <a href="">Amount</a>
+          <a href="">Location</a>
+          <a href="">Strategic Priority</a>
+          <a href="">Strategic Results</a>
+          <a href="">Total # Served</a>
+          <a href="">NH Served</a>
+          <a href="">Grant Status ID</a>
+        </div>
       </div>
+      <a href=""><input type="text" class="searchTerm" placeholder="Search"></a>
+      <a href="">
+        <button class="searchbutton" type="submit">Search
+        <i class="fa fa-search"></i>
+      </button></a>
     </div>
-  </div>
 
-  <script>
-  /* When the user clicks on the button,
-  toggle between hiding and showing the dropdown content */
-  function myFunction() {
-      document.getElementById("myDropdown").classList.toggle("show");
-  }
-
-  // Close the dropdown if the user clicks outside of it
-  window.onclick = function(e) {
-    if (!e.target.matches('.dropbtn')) {
-      var myDropdown = document.getElementById("myDropdown");
-        if (myDropdown.classList.contains('show')) {
-          myDropdown.classList.remove('show');
-        }
-    }
-  }
-  </script>
+  <br />
+  <br />
+  <br />
+  <br />
 
   <div ui-view="table"></div> -->
