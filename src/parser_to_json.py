@@ -35,9 +35,15 @@ def filter_by_param(df, param=None, operator=None, value=None):
     if param == None or operator == None or value == None:
         return df
     if operator=='like':
-        return df[df[param].str.contains(value)]
+        try:
+            return df[df[param].str.contains(value)]
+        except:
+            return df
     elif operator=='equals':
-        return df[df[param] == float(value)]
+        try:
+            return df[df[param] == float(value)]
+        except:
+            return df
         """
         lower = None
         upper = None

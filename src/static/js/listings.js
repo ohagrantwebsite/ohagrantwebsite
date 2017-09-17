@@ -90,13 +90,20 @@ app.controller("searchctrl", function($scope, $state, $http){
 
     $scope.search = function(query, column) {
 
+      operator = 'like';
+
       if (column == 'Grant Status ID') {
         column = 'GrantStatusId';
       }
 
+      if (column == 'Fiscal Year' || column == 'Amount' || column == 'TOTAL # SERVED' || column == '# NH SERVED'  || column == 'GrantStatusId') {
+        operator = 'equals';
+
+      }
+
       var filter = [{
         'column' : column,
-        'operator' : 'equals',
+        'operator' : operator,
         'value' : query
       }];
 
