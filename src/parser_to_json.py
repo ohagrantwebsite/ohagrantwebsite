@@ -32,12 +32,13 @@ def get_page(page, length, per_page):
         return length
 
 def filter_by_param(df, param=None, operator=None, value=None):
-
     if param == None or operator == None or value == None:
         return df
     if operator=='like':
         return df[df[param].str.contains(value)]
-    elif operator=='range':
+    elif operator=='equals':
+        return df[df[param] == float(value)]
+        """
         lower = None
         upper = None
         try:
@@ -57,6 +58,7 @@ def filter_by_param(df, param=None, operator=None, value=None):
         elif upper != None and lower != None:
             temp_df = df[df[param] <= upper]
             return temp_df[df[param] >= lower]
+        """
 
 def get_dropdowns(filename):
     fn = "data/" + filename

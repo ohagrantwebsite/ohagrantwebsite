@@ -20,7 +20,7 @@ app.controller("displaytable", function($scope, $state, $http){
                     'value' : 0
                   }
 
-    getResultsPage(1);
+
 
 
     $scope.open_analyze = function() {
@@ -28,11 +28,11 @@ app.controller("displaytable", function($scope, $state, $http){
     }
 
 
-    function getResultsPage(pageNumber) {
+    $scope.getResultsPage = function getResultsPage(pageNumber, filters) {
           var data = {
                   page: pageNumber,
                   per_page: 10,
-                  filters: []
+                  filters: filters
               }
 
           $http.post('/loadtable', data).then(function(response) {
@@ -51,14 +51,15 @@ app.controller("displaytable", function($scope, $state, $http){
           });
     }
 
+    $scope.getResultsPage(1, []);
+
     $scope.pageChanged = function(newPage) {
-      getResultsPage(newPage);
+      $scope.getResultsPage(newPage);
     };
 
 
 
 });
-
 
 app.controller("searchctrl", function($scope, $state, $http){
 
@@ -87,12 +88,26 @@ app.controller("searchctrl", function($scope, $state, $http){
 
 
 
+    $scope.search = function(query, column) {
 
+      if (column == 'Grant Status ID') {
+        column = 'GrantStatusId';
+      }
+
+      var filter = [{
+        'column' : column,
+        'operator' : 'equals',
+        'value' : query
+      }];
+
+      $scope.$parent.getResultsPage(1, filter);
+    }
 
 
     $http.get('/loadsearch').then(function(response) {
         $scope.dropdown_data = response.data;
         $scope.refresh_dropdown('Project');
+        $scope.dropdown_button_name = 'Select Field';
         $scope.ctrl.msg = 'Search';
     }, function(error) {
 
