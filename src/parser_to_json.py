@@ -1,8 +1,11 @@
 import pandas
 import json
 import math
+import StringIO
+from flask import Flask, make_response
 
 def parse_excel(filename, filters, page, per_page):
+
     fn = "data/" + filename
     df = pandas.read_excel(open(fn, 'rb'))
 
@@ -92,3 +95,58 @@ def get_dropdowns(filename):
     ret_dict['GrantStatusId'] = sorted(df['GrantStatusId'].unique())
 
     return json.dumps(ret_dict)
+
+def get_chart(filename, axis, indices):
+
+    import matplotlib.pyplot as plt # Because if we put it at the top, the
+                                    # rocketship icon would bounce forever
+    from matplotlib.backends.backend_agg import FigureCanvasAgg
+
+    fn = "data/" + filename
+    df = pandas.read_excel(open(fn, 'rb'))
+    result = df
+    if len(indices) > 0:
+        result = df.iloc[indices]
+
+    if axis != None:
+        try:
+            result = result[axis].value_counts().to_frame()
+        except KeyError:
+            result = result['Fiscal Year'].value_counts().to_frame()
+    else:
+        result = result['Fiscal Year'].value_counts().to_frame()
+
+    plt.style.use('seaborn-white')
+    ax = result.plot(kind='bar')
+    ax.set_axisbelow(True)
+    plt.gcf().subplots_adjust(bottom=0.15)
+    plt.rcParams['font.family'] = 'serif'
+    plt.rcParams['font.serif'] = 'Ubuntu'
+    plt.rcParams['font.monospace'] = 'Ubuntu Mono'
+    plt.rcParams['font.size'] = 14
+    plt.rcParams['axes.labelsize'] = 10
+    plt.rcParams['axes.labelweight'] = 'bold'
+    plt.rcParams['axes.titlesize'] = 10
+    plt.rcParams['xtick.labelsize'] = 8
+    plt.rcParams['ytick.labelsize'] = 8
+    plt.rcParams['legend.fontsize'] = 10
+
+    ax.legend_.remove()
+    ax.grid(color='#C0C0C0', linestyle='solid', axis='y', zorder=0)
+    plt.xlabel(axis)
+    plt.ylabel('Count')
+
+    #plt.rcParams['figure.titlesize'] = 12
+    #plt.show()
+
+    fig = plt.gcf()
+    canvas = FigureCanvasAgg(fig)
+    output = StringIO.StringIO()
+    canvas.print_png(output)
+    response = make_response(output.getvalue())
+    response.mimetype = 'image/png'
+
+    del plt
+    del FigureCanvasAgg
+
+    return response
