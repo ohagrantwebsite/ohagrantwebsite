@@ -20,8 +20,6 @@ app.controller("displaytable", function($scope, $state, $http){
                     'value' : 0
                   }
 
-    getFilterDropdowns();
-
     getResultsPage(1);
 
 
@@ -29,21 +27,6 @@ app.controller("displaytable", function($scope, $state, $http){
         $state.go('visualizer');
     }
 
-
-    function getFilterDropdowns() {
-        $http.get('/loadsearch').then(function(response) {
-            response_data = response.data;
-
-
-
-        }, function(error) {
-
-
-
-        });
-
-
-    }
 
     function getResultsPage(pageNumber) {
           var data = {
@@ -68,12 +51,42 @@ app.controller("displaytable", function($scope, $state, $http){
           });
     }
 
-
-
     $scope.pageChanged = function(newPage) {
       getResultsPage(newPage);
     };
 
+
+
+});
+
+
+app.controller("searchctrl", function($scope, $state, $http){
+
+    $scope.ctrl = {};
+
+    $scope.ctrl.query = '';
+    $scope.ctrl.msg = 'Search';
+    $scope.ctrl.dataList = [];//getFilterDropdowns('Fiscal Year');
+
+    getFilterDropdowns('Fiscal Year');
+
+    function getFilterDropdowns(field) {
+        $http.get('/loadsearch').then(function(response) {
+            response_data = response.data;
+
+            if (response_data.hasOwnProperty(field)) {
+              console.log(response_data[field]);
+              $scope.ctrl.dataList = response_data[field];
+            }
+            else {
+              $scope.ctrl.dataList = [];
+            }
+        }, function(error) {
+
+
+
+        });
+    }
 
 
 });

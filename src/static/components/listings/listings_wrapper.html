@@ -58,7 +58,7 @@
   }
   </style>
 
-  <div class="wrap">
+  <div class="wrap" ng-controller='searchctrl'>
       <div class="dropdown">
         <button class="dropbtn" onclick="myFunction()">Dropdown</button>
         <div class="dropdown-content" id="myDropdown">
@@ -75,11 +75,14 @@
           <a href="">Grant Status ID</a>
         </div>
       </div>
-      <a href="{{ /app.py }}"><input type="text" class="searchTerm" placeholder="Search"></a>
-      <a href="{{ /app.py }}">
+        <input type="text" class="searchTerm" list="autocompleList" ng-model="ctrl.query" placeholder='[{ctrl.msg}]'>
+        <datalist id="autocompleList">
+                <option ng-repeat="item in ctrl.dataList" value="[{item}]"  >
+        </datalist>
+        [{ctrl}]
         <button class="searchbutton" type="submit">Search
         <i class="fa fa-search"></i>
-      </button></a>
+        </button>
     </div>
 
   <br />
