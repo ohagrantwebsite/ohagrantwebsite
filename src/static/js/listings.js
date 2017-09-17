@@ -119,3 +119,19 @@ app.controller("searchctrl", function($scope, $state, $http){
 
     });
 });
+
+app.controller("chartctrl", function($scope, $state, $http){
+
+
+    data = {
+            'indices': [],
+            'axis': 'Fiscal Year'
+            }
+
+    $http.post('/loadchart', data).then(function(response) {
+        $scope.img = response.data;
+        console.log(response.data);
+    }, function(error) {
+
+    });
+});

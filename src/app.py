@@ -7,9 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    filename = "OHA Test Data Grant_2013_2014_2015_2016_Table.xlsx"
-
-    return parser_to_json.get_chart(filename, 'Fiscal Year', [])#render_template('index.html')
+    return render_template('index.html')
 
 @app.route('/listings')
 def listings():
@@ -44,8 +42,7 @@ def loadchart():
     indices = req['indices']
     axis = req['axis']
     filename = "OHA Test Data Grant_2013_2014_2015_2016_Table.xlsx"
-    return parse_to_json.get_chart(filename, axis, indices)
-
+    return parser_to_json.get_chart(filename, axis, indices)
 
 if __name__ == '__main__':
     app.run()

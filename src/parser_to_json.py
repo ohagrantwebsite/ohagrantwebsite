@@ -3,6 +3,9 @@ import json
 import math
 import StringIO
 from flask import Flask, make_response
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_agg import FigureCanvasAgg
+
 
 def parse_excel(filename, filters, page, per_page):
 
@@ -98,9 +101,6 @@ def get_dropdowns(filename):
 
 def get_chart(filename, axis, indices):
 
-    import matplotlib.pyplot as plt # Because if we put it at the top, the
-                                    # rocketship icon would bounce forever
-    from matplotlib.backends.backend_agg import FigureCanvasAgg
 
     fn = "data/" + filename
     df = pandas.read_excel(open(fn, 'rb'))
@@ -145,8 +145,5 @@ def get_chart(filename, axis, indices):
     canvas.print_png(output)
     response = make_response(output.getvalue())
     response.mimetype = 'image/png'
-
-    del plt
-    del FigureCanvasAgg
 
     return response
