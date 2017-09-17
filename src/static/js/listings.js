@@ -122,15 +122,19 @@ app.controller("searchctrl", function($scope, $state, $http){
 
 app.controller("chartctrl", function($scope, $state, $http){
 
+    $scope.chartimage = ''
 
     data = {
             'indices': [],
             'axis': 'Fiscal Year'
             }
 
-    $http.post('/loadchart', data).then(function(response) {
-        $scope.img = response.data;
-        console.log(response.data);
+    $http.post('/loadchart', data, {responseType: "arraybuffer"}).then(function(response) {
+        rawResponse = response.data;
+        data64 = btoa(new Uint8Array(rawResponse)
+                      .reduce((data, byte) => data + String.fromCharCode(byte), ''));
+        newlink = 'data:image/gif;base64,' + data64;
+        $scope.chartimage = newlink;
     }, function(error) {
 
     });
