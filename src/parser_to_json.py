@@ -4,6 +4,7 @@ import math
 import StringIO
 from flask import Flask, make_response
 import matplotlib.pyplot as plt
+matplotlib.use('Agg')
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 
 
