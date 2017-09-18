@@ -11,8 +11,8 @@ import os
 
 def parse_excel(filename, filters, page, per_page):
     print(os.getcwd())
-    print(os.listdir(os.getcwd()))
-    fn = filename
+    print(os.listdir(os.getcwd() + '/src'))
+    fn = 'src/' + filename
     df = pandas.read_excel(open(fn, 'rb'))
 
     result = df
@@ -78,7 +78,7 @@ def filter_by_param(df, param=None, operator=None, value=None):
         """
 
 def get_dropdowns(filename):
-    fn = filename
+    fn = 'src/' + filename
     df = pandas.read_excel(open(fn, 'rb'))
     """
     Fiscal Year    -> List of years
@@ -107,7 +107,7 @@ def get_dropdowns(filename):
 def get_chart(filename, axis, indices, mode):
 
 
-    fn = filename
+    fn = 'src/' + filename
     df = pandas.read_excel(open(fn, 'rb'))
     result = df
     if len(indices) > 0:
