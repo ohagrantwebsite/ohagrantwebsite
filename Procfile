@@ -1,1 +1,1 @@
-web: FLASK_APP=src/app.py flask run
+web: gunicorn app:app -b "0.0.0.0:$PORT" -w 3
