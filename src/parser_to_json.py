@@ -10,7 +10,7 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg
 
 
 def parse_excel(filename, filters, page, per_page):
-
+    os.getcwd()
     fn = filename
     df = pandas.read_excel(open(fn, 'rb'))
 
