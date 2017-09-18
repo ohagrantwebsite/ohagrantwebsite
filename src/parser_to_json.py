@@ -11,7 +11,7 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg
 
 def parse_excel(filename, filters, page, per_page):
 
-    fn = "data/" + filename
+    fn = filename
     df = pandas.read_excel(open(fn, 'rb'))
 
     result = df
@@ -77,7 +77,7 @@ def filter_by_param(df, param=None, operator=None, value=None):
         """
 
 def get_dropdowns(filename):
-    fn = "data/" + filename
+    fn = filename
     df = pandas.read_excel(open(fn, 'rb'))
     """
     Fiscal Year    -> List of years
@@ -106,7 +106,7 @@ def get_dropdowns(filename):
 def get_chart(filename, axis, indices, mode):
 
 
-    fn = "data/" + filename
+    fn = filename
     df = pandas.read_excel(open(fn, 'rb'))
     result = df
     if len(indices) > 0:
