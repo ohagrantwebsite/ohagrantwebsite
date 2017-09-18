@@ -11,6 +11,7 @@ import os
 
 def parse_excel(filename, filters, page, per_page):
     print(os.getcwd())
+    print(os.listdir(os.getcwd()))
     fn = filename
     df = pandas.read_excel(open(fn, 'rb'))
 
