@@ -41,8 +41,9 @@ def loadchart():
     req = request.get_json()
     indices = req['indices']
     axis = req['axis']
+    mode = req['mode']
     filename = "OHA Test Data Grant_2013_2014_2015_2016_Table.xlsx"
-    return parser_to_json.get_chart(filename, axis, indices)
+    return parser_to_json.get_chart(filename, axis, indices, mode)
 
 if __name__ == '__main__':
     app.run()

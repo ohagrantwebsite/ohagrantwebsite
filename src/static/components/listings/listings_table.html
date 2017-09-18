@@ -5,12 +5,19 @@
       <div class="row">
         <div class="col-sm-2">
           <br>
-          <h4>Select Statistic</h4>
+          <h4>Select Parameter</h4>
           <div class="list-group" style="cursor: pointer">
-            <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Count' ? 'active' : ''" ng-click="refresh_chart('Count')">Count</a>
-            <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Average' ? 'active' : ''" ng-click="refresh_chart('Average')">Average</a>
+            <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Fiscal Year' ? 'active' : ''" ng-click="refresh_chart('Fiscal Year')">Fiscal Year</a>
+            <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Grant Type' ? 'active' : ''" ng-click="refresh_chart('Grant Type')">Grant Type</a>
+            <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Organization' ? 'active' : ''" ng-click="refresh_chart('Organization')">Organization</a>
+            <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Amount' ? 'active' : ''" ng-click="refresh_chart('Amount')">Amount</a>
+            <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Location' ? 'active' : ''" ng-click="refresh_chart('Location')">Location</a>
+            <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Strategic Priority' ? 'active' : ''" ng-click="refresh_chart('Strategic Priority')">Strategic Priority</a>
+            <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Strategic Results' ? 'active' : ''" ng-click="refresh_chart('Strategic Results')">Strategic Results</a>
+            <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Total # Served' ? 'active' : ''" ng-click="refresh_chart('Total # Served')">Total # Served</a>
+            <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='NH Served' ? 'active' : ''" ng-click="refresh_chart('NH Served')">NH Served</a>
+            <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Grant Status ID' ? 'active' : ''" ng-click="refresh_chart('Grant Status ID')">Grant Status ID</a>
           </div>
-
         </div>
         <div class="col-sm-8">
           <div >
@@ -19,19 +26,7 @@
         </div>
         <div class="col-sm-2">
             <br>
-            <h4>Select Parameter</h4>
-            <div class="list-group" style="cursor: pointer">
-              <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Fiscal Year' ? 'active' : ''" ng-click="refresh_chart('Fiscal Year')">Fiscal Year</a>
-              <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Grant Type' ? 'active' : ''" ng-click="refresh_chart('Grant Type')">Grant Type</a>
-              <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Organization' ? 'active' : ''" ng-click="refresh_chart('Organization')">Organization</a>
-              <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Amount' ? 'active' : ''" ng-click="refresh_chart('Amount')">Amount</a>
-              <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Location' ? 'active' : ''" ng-click="refresh_chart('Location')">Location</a>
-              <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Strategic Priority' ? 'active' : ''" ng-click="refresh_chart('Strategic Priority')">Strategic Priority</a>
-              <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Strategic Results' ? 'active' : ''" ng-click="refresh_chart('Strategic Results')">Strategic Results</a>
-              <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Total # Served' ? 'active' : ''" ng-click="refresh_chart('Total # Served')">Total # Served</a>
-              <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='NH Served' ? 'active' : ''" ng-click="refresh_chart('NH Served')">NH Served</a>
-              <a class="list-group-item list-group-item-action" ng-class="active_axis_name=='Grant Status ID' ? 'active' : ''" ng-click="refresh_chart('Grant Status ID')">Grant Status ID</a>
-            </div>
+
           </div>
         </div>
       </div>
@@ -87,29 +82,15 @@
     <table ng-if="has_results==1" class="compact celled definition table">
       <thead class="full-width">
         <tr>
-        <th>Analyze</th>
-        <th>Compare</th>
         <th ng-repeat="heading in headings">[{heading}]</th>
         </tr>
       </thead>
       <tbody>
         <tr dir-paginate="grant in grants | itemsPerPage: grantsPerPage" total-items="totalGrants" current-page="pagination.current">
-          <td class="collapsing">
-            <div class="fitted slider checkbox">
-              <input type="checkbox"> <label></label>
-            </div>
-          </td>
-          <td class="collapsing">
-            <div class="fitted slider checkbox">
-              <input type="checkbox"> <label></label>
-            </div>
-          </td>
           <td ng-repeat="col in grant track by $index">[{ grant[headings[$index]] }]</td>
         </tr>
       </tbody>
     </table>
-    <button ng-if="has_results==1" class="button" ng-click="open_analyze()">Analyze</button>
-    <button ng-if="has_results==1" class="button">Compare</button>
 
     <div ng-if="has_results==0" class="">No Results Found</div>
     <div ng-if="has_results==1" role="main">

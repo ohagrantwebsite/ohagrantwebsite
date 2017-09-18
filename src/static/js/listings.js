@@ -147,16 +147,29 @@ app.controller("chartctrl", function($scope, $state, $http){
 
     $scope.chartimage = '';
     $scope.active_axis_name = 'Fiscal Year';
+    $scope.chart_mode = 'Count';
 
     $scope.refresh_chart = function(axis) {
-
         submit_axis = axis;
-        if (submit_axis == 'Grant Status ID') {
+        if (axis === 'Count') {
+            $scope.chart_mode = 'Count';
+        }
+        else if (axis == 'Average') {
+            $scope.chart_mode = 'Average';
+        }
+        else if (submit_axis == 'Grant Status ID') {
           submit_axis = 'GrantStatusId';
+        }
+        else if (submit_axis == 'Total # Served') {
+          submit_axis = 'TOTAL # SERVED';
+        }
+        else if (submit_axis == 'NH Served') {
+          submit_axis = '# NH Served';
         }
         data = {
           'indices' : $scope.$parent.get_indices(),
           'axis' : submit_axis,
+          'mode' : $scope.chart_mode,
         }
         $scope.active_axis_name = axis;
 

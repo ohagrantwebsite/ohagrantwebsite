@@ -101,7 +101,7 @@ def get_dropdowns(filename):
 
     return json.dumps(ret_dict)
 
-def get_chart(filename, axis, indices):
+def get_chart(filename, axis, indices, mode):
 
 
     fn = "data/" + filename
@@ -110,15 +110,25 @@ def get_chart(filename, axis, indices):
     if len(indices) > 0:
         result = df.iloc[indices]
 
-    if axis != None:
-        try:
-            result = result[axis].value_counts().to_frame()
-        except KeyError:
+    if mode == 'Count':
+        if axis != None:
+            try:
+                result = result[axis].value_counts().to_frame()
+            except KeyError:
+                result = result['Fiscal Year'].value_counts().to_frame()
+        else:
             result = result['Fiscal Year'].value_counts().to_frame()
-    else:
-        result = result['Fiscal Year'].value_counts().to_frame()
+    elif mode == 'Average':
+        if axis != None:
+            try:
+                result = result[axis].value_counts().to_frame()
+            except KeyError:
+                result = result['Fiscal Year'].value_counts().to_frame()
+        else:
+            result = result['Fiscal Year'].value_counts().to_frame()
 
     plt.style.use('seaborn-white')
+    ax = None
     ax = result.plot(kind='bar')
     ax.set_axisbelow(True)
     plt.gcf().subplots_adjust(bottom=0.15)
@@ -136,7 +146,7 @@ def get_chart(filename, axis, indices):
     ax.legend_.remove()
     ax.grid(color='#C0C0C0', linestyle='solid', axis='y', zorder=0)
     plt.xlabel(axis)
-    plt.ylabel('Count')
+    plt.ylabel(mode)
 
     #plt.rcParams['figure.titlesize'] = 12
     #plt.show()
@@ -147,5 +157,7 @@ def get_chart(filename, axis, indices):
     canvas.print_png(output)
     response = make_response(output.getvalue())
     response.mimetype = 'image/png'
+
+    plt.close('all')
 
     return response
