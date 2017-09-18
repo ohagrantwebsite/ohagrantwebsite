@@ -3,8 +3,9 @@ import json
 import math
 import StringIO
 from flask import Flask, make_response
-import matplotlib.pyplot as plt
+import matplotlib
 matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 
 
