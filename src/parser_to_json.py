@@ -7,7 +7,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_agg import FigureCanvasAgg
-
+import os
 
 def parse_excel(filename, filters, page, per_page):
     os.getcwd()
