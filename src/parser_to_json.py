@@ -19,11 +19,13 @@ def parse_excel(filename, filters, page, per_page):
 
     h_lim = get_page(page, len(result), per_page)
     l_lim = get_page(page - 1, len(result), per_page)
+    indices = result.index.values.tolist()
 
     extra_data = {'Elements': len(result),
                   'Pages': math.ceil(len(result)/per_page),
                   'h_lim': h_lim,
-                  'l_lim': l_lim}
+                  'l_lim': l_lim,
+                  'indices': indices}
 
     result_page = result[l_lim : h_lim]
     result_dict = json.loads(result_page.to_json(orient='table'))

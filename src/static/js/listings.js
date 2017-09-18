@@ -16,7 +16,7 @@ app.controller("displaytable", function($scope, $state, $http){
 
     $scope.current_filters = [];
 
-
+    $scope.indices = [];
 
 
     $scope.open_analyze = function() {
@@ -32,21 +32,40 @@ app.controller("displaytable", function($scope, $state, $http){
               }
           $scope.current_filters = filters;
           $http.post('/loadtable', data).then(function(response) {
-            response_data = response.data;
-            $scope.headings = response_data.schema
-                              .fields.map(function(item) {
-                                          return item['name'];
-                                          });
-            $scope.grants = response_data.data;
 
-            $scope.totalGrants = response_data.Elements;
+                  function arraysEqual(arr1, arr2) {
+                      if(arr1.length !== arr2.length)
+                        return false;
+                      for(var i = arr1.length; i--;) {
+                        if(arr1[i] !== arr2[i])
+                            return false;
+                      }
+                      return true;
+                      }
+
+                  response_data = response.data;
+                  $scope.headings = response_data.schema
+                                    .fields.map(function(item) {
+                                                return item['name'];
+                                                });
+                  $scope.grants = response_data.data;
+
+                  $scope.totalGrants = response_data.Elements;
+
+
+                  if (!arraysEqual($scope.indices, response_data.indices)) {
+                      $scope.indices = response_data.indices;
+                      $scope.$broadcast('UPDATE_THE_CHART');
+                  }
+                  $scope.has_results = 1;
 
 
 
-            $scope.has_results = 1;
-          }, function(error) {
 
-          });
+                  return true;
+                }, function(error) {
+                  return false;
+                });
     }
 
     $scope.getResultsPage(1, []);
@@ -56,6 +75,9 @@ app.controller("displaytable", function($scope, $state, $http){
       $scope.getResultsPage(newPage, filters);
     };
 
+    $scope.get_indices = function() {
+      return $scope.indices;
+    }
 
 
 });
@@ -107,6 +129,7 @@ app.controller("searchctrl", function($scope, $state, $http){
       }];
 
       $scope.$parent.getResultsPage(1, filter);
+
     }
 
 
@@ -114,7 +137,7 @@ app.controller("searchctrl", function($scope, $state, $http){
         $scope.dropdown_data = response.data;
         $scope.refresh_dropdown('Project');
         $scope.dropdown_button_name = 'Select Field';
-        $scope.ctrl.msg = 'Search';
+        $scope.ctrl.msg = 'Select Field';
     }, function(error) {
 
     });
@@ -122,20 +145,37 @@ app.controller("searchctrl", function($scope, $state, $http){
 
 app.controller("chartctrl", function($scope, $state, $http){
 
-    $scope.chartimage = ''
+    $scope.chartimage = '';
+    $scope.active_axis_name = 'Fiscal Year';
 
-    data = {
-            'indices': [],
-            'axis': 'Fiscal Year'
-            }
+    $scope.refresh_chart = function(axis) {
 
-    $http.post('/loadchart', data, {responseType: "arraybuffer"}).then(function(response) {
-        rawResponse = response.data;
-        data64 = btoa(new Uint8Array(rawResponse)
-                      .reduce((data, byte) => data + String.fromCharCode(byte), ''));
-        newlink = 'data:image/gif;base64,' + data64;
-        $scope.chartimage = newlink;
-    }, function(error) {
+        submit_axis = axis;
+        if (submit_axis == 'Grant Status ID') {
+          submit_axis = 'GrantStatusId';
+        }
+        data = {
+          'indices' : $scope.$parent.get_indices(),
+          'axis' : submit_axis,
+        }
+        $scope.active_axis_name = axis;
 
+        $http.post('/loadchart', data, {responseType: "arraybuffer"}).then(function(response) {
+            rawResponse = response.data;
+            data64 = btoa(new Uint8Array(rawResponse)
+                          .reduce((data, byte) => data + String.fromCharCode(byte), ''));
+            newlink = 'data:image/gif;base64,' + data64;
+            $scope.chartimage = newlink;
+        }, function(error) {
+
+        });
+    }
+
+
+     $scope.$on('UPDATE_THE_CHART', function() {
+      $scope.refresh_chart($scope.active_axis_name);
     });
+
+
+    $scope.refresh_chart('Fiscal Year');
 });
