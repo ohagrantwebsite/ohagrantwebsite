@@ -12,10 +12,12 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/bower_components/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="static/bower_components/slick-carousel/slick/slick-theme.css">
     <!-- Custom styles for this template -->
     <link href="static/css/styles.css" rel="stylesheet">
     <!-- Angular scripts -->
-<script src="static/bower_components/jquery/dist/jquery.js"></script>
+    <script src="static/bower_components/jquery/dist/jquery.js"></script>
     <script src="static/bower_components/bootstrap.min.js"></script>
     <script src="static/bower_components/angular/angular.js"></script>
     <script src="static/bower_components/satellizer.min.js"></script>
@@ -76,6 +78,7 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
+
 <!--
 <div class="tutorialvideo">
 <div class="column">
@@ -91,7 +94,8 @@ frameborder="0" allowfullscreen></iframe>
 </div>
 <hr></hr>
 -->
-    <div class="frontpagebody">
+
+    <div class="front-page-left">
     <ul>
       <li>
         <h3><u>News and Updates</u></h3>
@@ -106,6 +110,10 @@ frameborder="0" allowfullscreen></iframe>
       please check our <a href="http://127.0.0.1:5000/contactus">Contact Us page</a>
       </p>
       </li>
+    </ul>
+  </div>
+  <div class="front-page-right">
+    <ul>
       <li>
         <h3><u>About this website</u></h3>
         <p>
@@ -118,11 +126,22 @@ frameborder="0" allowfullscreen></iframe>
       </li>
     </ul>
     </div>
-    <br />
-    <div style="text-align:center">
-    <h3>Please go to the <a href="http://127.0.0.1:5000/contactus">Contact Us</a>
-      page to fill out a survey to improve our website!</h3>
+  </br>
+    <div class="your-class-text" style="text-align:center">
+      <h4>Overview of the listing page and survey form</h4>
     </div>
+
+    <div class="your-class" align="center">
+    <div><img src="static/images/listing1.png" width="600" height="338" align="middle"/></div>
+    <div><img src="static/images/survey1.png" width="338" height="400" align="middle"/></div>
+  </div>
+</br>
+  <div style="text-align:center">
+  <h3>Please go to the <a href="http://127.0.0.1:5000/contactus">Contact Us</a>
+    page to fill out a survey to improve our website!</h3>
+  </div>
+
+</br>
 
     <footer>
     <div style="text-align:center" class="footer">
@@ -142,11 +161,22 @@ frameborder="0" allowfullscreen></iframe>
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="static/bower_components/slick-carousel/slick/slick.min.js"></script>
     <!--
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
     <script src="static/js/angularapp.js"></script>
     -->
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('.your-class').slick({
+            arrows: true,
+            dots: true,
+            autoplay: true
+          });
+        });
+      </script>
   </body>
 
   <style>
@@ -154,12 +184,6 @@ frameborder="0" allowfullscreen></iframe>
     column-count: 2;
     column-gap: 40px;
     padding-bottom: 25px;
-}
-
-.frontpagebody {
-  column-count: 2;
-  column-gap: 10px;
-  padding-top: 25px;
 }
 </style>
 
