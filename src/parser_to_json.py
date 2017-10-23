@@ -92,6 +92,7 @@ def get_dropdowns(filename):
     TOTAL # SERVED -> (not a dropdown)
     # NH SERVED -> (not a dropdown)
     GrantStatusId -> list of statuses
+
     """
     ret_dict = {}
     ret_dict['Fiscal Year'] = sorted(df['Fiscal Year'].unique())
@@ -105,7 +106,6 @@ def get_dropdowns(filename):
     return json.dumps(ret_dict)
 
 def get_chart(filename, axis, indices, mode):
-
 
     fn = 'src/' + filename
     df = pandas.read_excel(open(fn, 'rb'))
