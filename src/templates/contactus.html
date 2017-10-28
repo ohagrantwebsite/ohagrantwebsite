@@ -12,7 +12,9 @@
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Custom styles for this template -->
   <link href="static/css/styles.css" rel="stylesheet">
   <!-- Angular scripts -->
@@ -60,8 +62,8 @@
 
   </div>
 
-  <div class="navbar navbar-inverse navbar-fixed" role="navigation">
-    <div class="container">
+  <div class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="sr-only">Toggle navigation</span>
@@ -88,7 +90,7 @@
   <br />
   <div class="w3-row w3-border" style="padding: 5px; padding-left: 200px">
     <div class="w3-container w3-third" style="padding: 5px; filter: alpha(opacity=80); opacity: 0.80;">
-      <div class="card card-inverse" style="background-color: green; border-color: green; width: 20rem; padding: 10px; border-radius: 25px;">
+      <div class="card card-inverse" style="background-color: #33FF7D; border-color: green; width: 20rem; padding: 10px; border-radius: 25px;">
         <div class="card-block">
           <h3 class="card-title" align="middle"><a href="https://oha-grant-listings.herokuapp.com/">Our Official website</a></h3>
         </div>
@@ -102,7 +104,7 @@
       </div>
     </div>
     <div class="w3-container w3-third" style="padding: 5px; filter: alpha(opacity=80); opacity: 0.80;">
-      <div class="card card-inverse" style="background-color: blue; border-color: blue; width: 20rem; padding: 10px; border-radius: 25px;">
+      <div class="card card-inverse" style="background-color: #33BBFF; border-color: blue; width: 20rem; padding: 10px; border-radius: 25px;">
         <div class="card-block">
           <h3 class="card-title" align="middle"><a href="https://ohagrantwebsite.github.io/">Github developer guide</a></h3>
         </div>
@@ -123,7 +125,7 @@
       </div>
     </div>
     <div class="w3-container w3-third" style="padding: 5px; filter: alpha(opacity=80); opacity: 0.80;">
-      <div class="card card-inverse" style="background-color: brown; border-color: brown; width: 20rem; padding: 10px; border-radius: 25px;">
+      <div class="card card-inverse" style="background-color: #E033FF; border-color: brown; width: 20rem; padding: 10px; border-radius: 25px;">
         <div class="card-block">
           <h3 class="card-title" align="middle"><a href="https://www.oha.org/">Official OHA website</a></h3>
         </div>
@@ -144,12 +146,13 @@
   <footer>
     <div style="text-align:center" class="footer">
       <hr>
-      Contact Information
-      <div class="content">
-        <p><a href="https://github.com/ohagrantwebsite/ohagrantwebsite"> Team Lucio</a></p>
-        <p>Department of Information and Computer Sciences</p>
-        <p>University of Hawaii</p>
-        <p>Honolulu, HI 96822</p>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Contact Information <i class="fa fa-angle-down" style="font-size:18px"></i></button>
+      <div id="demo" class="collapse">
+          <br />
+          <p><a href="https://github.com/ohagrantwebsite/ohagrantwebsite">Team Lucio</a></p>
+          <p>Department of Information and Computer Sciences</p>
+          <p>University of Hawaii</p>
+          <p>Honolulu, HI 96822</p>
       </div>
     </div>
   </footer>
