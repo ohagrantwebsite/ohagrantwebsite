@@ -73,11 +73,11 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
         <li><a href="listings">Listings</a></li>
+				<li class="active"><a href="listingsHS">Listings Highcharts Style</a></li>
         <li><a href="qa">QA</a></li>
         <li><a href="contactus">Contact Us</a></li>
-        <li><a href="listingsHS">Listings Highcharts Style</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -95,7 +95,7 @@ Highcharts.chart('container', {
         type: 'pie'
     },
     title: {
-        text: 'Browser market shares January, 2015 to May, 2015'
+        text: 'OHA Grants by type, Fiscal Years 2013-2016'
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -114,28 +114,22 @@ Highcharts.chart('container', {
         }
     },
     series: [{
-        name: 'Brands',
+        name: 'Grant Type',
         colorByPoint: true,
         data: [{
-            name: 'Microsoft Internet Explorer',
-            y: 56.33
-        }, {
-            name: 'Chrome',
-            y: 24.03,
+            name: 'Ahahui',
+            y: 21.25,
             sliced: true,
             selected: true
         }, {
-            name: 'Firefox',
-            y: 10.38
+            name: 'BOT Initiative',
+            y: 9.23
         }, {
-            name: 'Safari',
-            y: 4.77
+            name: 'Community Grant',
+            y: 21.60
         }, {
-            name: 'Opera',
-            y: 0.91
-        }, {
-            name: 'Proprietary or Undetectable',
-            y: 0.2
+            name: 'Sponsorship',
+            y: 47.91
         }]
     }]
 });
