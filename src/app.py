@@ -13,6 +13,10 @@ def index():
 def listings():
     return render_template('listings.html')
 
+@app.route('/listingsHS')
+def listingsHS():
+    return render_template('listingsHS.html')
+
 @app.route('/qa')
 def qa():
     return render_template('qa.html')
