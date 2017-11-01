@@ -15,13 +15,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="static/bower_components/fontawesome/css/font-awesome.min.css">
-
-
     <link href="static/css/styles.css" rel="stylesheet">
+
     <!-- Angular scripts -->
-   <script src="static/bower_components/jquery/dist/jquery.js"></script>
+    <script src="static/bower_components/jquery/dist/jquery.js"></script>
     <script src="static/bower_components/bootstrap.min.js"></script>
     <script src="static/bower_components/angular/angular.js"></script>
     <script src="static/bower_components/satellizer.min.js"></script>
@@ -41,6 +41,12 @@
     <script src="static/js/app.js"></script>
     <script src="static/js/routes.js"></script>
     <script src="static/js/listings.js"></script>
+
+    <!-- HighCharts inclusion -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/static/Highcharts-6.0.2/code/js/highcharts.js"></script>
+    <script src="/static/Highcharts-6.0.2/code/modules/exporting.js"></script>
+
   </head>
 
   <body>
@@ -92,7 +98,34 @@
           </div><!--/.nav-collapse -->
         </div>
       </div>
-
+      <div id="container" style="width:100%; height:400px;"></div>
+      <script>
+      $(function () {
+  var myChart = Highcharts.chart('container', {
+      chart: {
+          type: 'bar'
+      },
+      title: {
+          text: 'Fruit Consumption'
+      },
+      xAxis: {
+          categories: ['Apples', 'Bananas', 'Oranges']
+      },
+      yAxis: {
+          title: {
+              text: 'Fruit eaten'
+          }
+      },
+      series: [{
+          name: 'Jane',
+          data: [1, 0, 4]
+      }, {
+          name: 'John',
+          data: [5, 7, 3]
+      }]
+  });
+});
+      </script>
       <div ng-app="oha">
         <div ui-view class="slide-left"></div>
       </div>
@@ -114,7 +147,8 @@
       <!-- Bootstrap core JavaScript
       ================================================== -->
       <!-- Placed at the end of the document so the pages load faster -->
-      <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
       <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
       <!--
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
