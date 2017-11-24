@@ -33,6 +33,11 @@
 		<!-- Highcharts scripts -->
     <script src="/static/highcharts/code/highcharts.js"></script>
     <script src="/static/highcharts/code/modules/exporting.js"></script>
+
+		<!-- Angular App scripts -->
+		<script src="static/js/app.js"></script>
+		<script src="static/js/routes.js"></script>
+		<script src="static/js/listings.js"></script>
 	</head>
 <body>
 <div class="su-grid">
@@ -85,12 +90,12 @@
 </div>
 
 <!-- div for Highcharts chart with code under -->
-<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-
+<div id="pie" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto;"></div>
+<div id="columnchart" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto;"></div>
 		<script type="text/javascript">
 
 
-Highcharts.chart('container', {
+Highcharts.chart('pie', {
     chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
@@ -136,7 +141,49 @@ Highcharts.chart('container', {
         }]
     }]
 });
+
+Highcharts.chart('columnchart', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'OHA Grants by type, Fiscal Years 2013-2016'
+    },
+    subtitle: {
+        text: 'Fiscal Year vs Grant Type'
+    },
+    xAxis: {
+        categories: [],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Grant Types'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: []
+});
+
 		</script>
+
+		<div ng-app="oha">
+			<div ui-view class="slide-left"></div>
+		</div>
 
     <footer>
       <div style="text-align:center" class="footer">
