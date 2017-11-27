@@ -37,625 +37,15 @@
     <script src="static/bower_components/ui-bootstrap-tpls-1.3.2.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js%22%3E"></script>
     <!-- Highcharts scripts -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   	<script src="/static/highcharts/code/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/data.js"></script>
   	<script src="/static/highcharts/code/modules/exporting.js"></script>
-  	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <!-- Angular App scripts -->
     <script src="static/js/app.js"></script>
     <script src="static/js/routes.js"></script>
     <script src="static/js/listings.js"></script>
-
-    <div style="width: 800px; margin: 2em auto; padding: 1em; border: 1px solid red; border-radius: 0.5em">
-	Highcharts data load from a csv stored inline in a hidden div
-	</div>
-
-	<div id="container" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
-    <pre id="csv" style="display:none">Fiscal Year,Grant Type,Organization,Amount,Location,Strategic Priority,Strategic Results,Total Served,NH Served,GrantStatusId
-    2014,Community Grant,University of Hawaii Foundation,100000,Statewide,Education,Exceed Education Standards,1,1,2
-    2014,BOT Initiative,Native Arts and Culture Foundation,100000,Statewide,Culture,Participate in Culture,12,12,1
-    2013,Community Grant,University of Hawaii - Office of Research Services ,90000,Statewide,Education,Exceed Education Standards,26,26,1
-    2013,Community Grant,PACT,124500,Hawaii,Economic Self-Sufficiency,Increase Family Income,30,30,1
-    2014,Community Grant,Goodwill Industries of Hawaii ,180000,Hawaii,Economic Self-Sufficiency,Increase Family Income,31,31,1
-    2013,Community Grant,Goodwill Industries of Hawaii ,150000,Oahu,Economic Self-Sufficiency,Increase Family Income,32,32,1
-    2014,BOT Initiative,Waianae Community Re-Development Corporation,249811,Oahu,Education,Exceed Education Standards,32,32,1
-    2013,Community Grant,Goodwill Industries of Hawaii ,150000,Hawaii,Economic Self-Sufficiency,Increase Family Income,34,34,1
-    2014,BOT Initiative,HI Tech Youth Network,180000,Kauai,Education,Exceed Education Standards,43,43,1
-    2014,Community Grant,The Salvation Army ,122822,Statewide,Health,Decrease Chronic Disease Rates,45,28,1
-    2015,Community Grant,Goodwill Industries of Hawaii ,120000,Hawaii,Economic Self-Sufficiency,Increase Family Income,52,52,1
-    2013,Community Grant,PACT,150000,Oahu,Economic Self-Sufficiency,Increase Family Income,53,53,1
-    2015,Community Grant,The Salvation Army ,124823,Statewide,Health,Decrease Chronic Disease Rates,53,35,1
-    2013,Community Grant,Helping Hands ,41325,Oahu,Economic Self-Sufficiency,Build Stability in Housing,54,54,1
-    2013,Community Grant,Kokua Kalihi Valley Comprehensive Family Services ,125000,Oahu,Health,Improve Family Lifestyle,59,59,1
-    2013,Community Grant,University of Hawaii - Office of Research Services ,195000,Statewide,Education,Exceed Education Standards,66,37,1
-    2015,Community Grant,"Effective Planning Innovative Communication, Inc. (DBA Epic Ohana) ",3780,Statewide,Economic Self-Sufficiency,Build Stability in Housing,67,54,1
-    2015,Community Grant,Parents and Children Together ,200000,Oahu,Economic Self-Sufficiency,Increase Family Income,67,67,1
-    2013,Community Grant,University of Hawaii - Office of Research Services,89850,Kauai,Education,Exceed Education Standards,75,75,1
-    2015,Community Grant,Family Promise of Hawaii ,20000,Oahu,Economic Self-Sufficiency,Build Stability in Housing,80,80,1
-    2013,Community Grant,Goodwill Industries of Hawaii ,125000,Hawaii,Education,Exceed Education Standards,80,56,1
-    2013,Community Grant,North Hawaii Community Hospital,240782,Hawaii,Health,Decrease Chronic Disease Rates,83,83,1
-    2014,Community Grant,Family Promise of Hawaii ,20000,Oahu,Economic Self-Sufficiency,Build Stability in Housing,87,87,1
-    2014,Community Grant,Kokua Kalihi Valley Comprehensive Family Services ,260409,Oahu,Health,Decrease Chronic Disease Rates,87,78,1
-    2014,Community Grant,Paepae o Heeia,47640,Oahu,Culture,Participate in Culture,93,58,1
-    2015,Community Grant,Kokua Kalihi Valley Comprehensive Family Services,234926,Oahu,Health,Decrease Chronic Disease Rates,98,64,1
-    2013,Community Grant,Waimanalo Health Center,200000,Oahu,Health,Decrease Chronic Disease Rates,98,98,1
-    2015,Community Grant,Paepae o Heeia ,45440,Oahu,Culture,Participate in Culture,99,74,1
-    2013,Community Grant,"Alu Like, Inc.",155138,Statewide,Economic Self-Sufficiency,Build Stability in Housing,107,107,1
-    2013,Community Grant,Ka Aha Hui Naauao,34000,Oahu,Culture,Participate in Culture,117,NULL,1
-    2013,Community Grant,Catholic Charities,150000,Oahu,Economic Self-Sufficiency,Build Stability in Housing,119,119,1
-    2015,BOT Initiative,Univeristy of Hawaii - Office of Research Services,187000,Statewide,Education,Exceed Education Standards,127,127,2
-    2013,Community Grant,Nanakuli Housing Corporation ,208675,Oahu,Economic Self-Sufficiency,Build Stability in Housing,129,129,1
-    2013,BOT Initiative,Univeristy of Hawaii - Office of Research Services,397000,Statewide,Education,Exceed Education Standards,140,140,1
-    2014,Community Grant,Parents and Children Together ,300000,Oahu,Economic Self-Sufficiency,Increase Family Income,152,152,1
-    2015,BOT Initiative,Hawaii Community Foundation,330000,Statewide,Education,Exceed Education Standards,156,156,1
-    2014,BOT Initiative,Hawaii Community Foundation,330000,Statewide,Education,Exceed Education Standards,157,157,1
-    2013,Community Grant,Queen's Medical Center (The),148500,Maui,Health,Decrease Chronic Disease Rates,165,165,1
-    2014,Community Grant,Papaku No Kamehaikana ,26500,Oahu,Culture,Participate in Culture,180,170,1
-    2013,Community Grant,Papaku No Kamehaikana,25078,Oahu,Culture,Participate in Culture,195,NULL,1
-    2013,BOT Initiative,Hawaii Community Foundation,440000,Statewide,Education,Exceed Education Standards,204,204,1
-    2014,BOT Initiative,Lieutenant Governor's Office,75000,Multiple,Education,Exceed Education Standards,206,NULL,1
-    2013,Community Grant,University of Hawaii - Office of Research Services,250000,Statewide,Health,Decrease Chronic Disease Rates,219,151,1
-    2015,Community Grant,I Ola Lahui,250000,Multiple,Health,Decrease Chronic Disease Rates,250,109,1
-    2014,Community Grant,"Kaala Farm, Inc. ",100183,Oahu,Land & Water,Achieve Pae Aina Sustainability,280,NULL,2
-    2015,Community Grant,Papaku No Kamehaikana ,28350,Oahu,Culture,Participate in Culture,283,262,1
-    2014,Community Grant,Keiki O Ka Aina Family Learning Centers ,80228,Oahu,Culture,Participate in Culture,289,329,1
-    2014,Community Grant,Paa Pono Milolii ,70000,Hawaii,Culture,Participate in Culture,300,NULL,1
-    2014,Community Grant,Kipahulu Ohana  ,101900,Maui,Culture,Participate in Culture,335,213,1
-    2015,Community Grant,Kipahulu Ohana  ,81300,Maui,Culture,Participate in Culture,356,204,1
-    2013,Community Grant,I Ola Lahui,250000,Oahu,Health,Decrease Chronic Disease Rates,363,223,1
-    2014,Community Grant,The Queen's Medical Center ,209848,Maui,Health,Decrease Chronic Disease Rates,378,362,1
-    2015,Community Grant,After School All-Stars,75000,Oahu,Education,Exceed Education Standards,393,258,1
-    2013,Community Grant,Council for Native Hawaiian Advancement (CNHA),250000,Statewide,Economic Self-Sufficiency,Increase Family Income,393,393,1
-    2014,Community Grant,I Ola Lahui,250000,Multiple,Health,Decrease Chronic Disease Rates,407,206,1
-    2013,Community Grant,After School All-Stars,72914,Hawaii,Education,Exceed Education Standards,420,196,1
-    2014,Community Grant,Boys and Girls Club of Maui ,100000,Maui,Education,Exceed Education Standards,436,277,1
-    2014,Community Grant,After School All-Stars,75000,Oahu,Education,Exceed Education Standards,455,327,1
-    2015,Community Grant,The Queen's Medical Center ,233329,Maui,Health,Decrease Chronic Disease Rates,475,230,1
-    2015,Community Grant,Paa Pono Milolii ,70000,Hawaii,Culture,Participate in Culture,485,NULL,1
-    2015,Community Grant,"Kaala Farm, Inc. ",99706,Oahu,Land & Water,Achieve Pae Aina Sustainability,595,NULL,2
-    2013,Community Grant,Kokua Kalihi Valley Comprehensive Family Services ,97585,Oahu,Land & Water,Achieve Pae Aina Sustainability,597,NULL,1
-    2015,Community Grant,Boys and Girls Club of Maui ,100000,Maui,Education,Exceed Education Standards,617,421,1
-    2013,BOT Initiative,Native Hawaiian Education Association (NHEA),136000,Statewide,Health,Improve Family Lifestyle,632,458,1
-    2013,Community Grant,After School All-Stars,64430,Oahu,Education,Exceed Education Standards,651,424,1
-    2013,Community Grant,Hawaiian Kamalii Inc.,43320,Maui,Culture,Participate in Culture,702,NULL,1
-    2015,Community Grant,Boys and Girls Club of Hawai'i ,85819,Kauai,Health,Decrease Chronic Disease Rates,760,208,1
-    2015,Community Grant,Keiki O Ka Aina Family Learning Centers ,79611,Oahu,Culture,Participate in Culture,785,741,1
-    2014,Community Grant,Hawaii Alliance for Community-Based Economic Development (HACBED) ,80000,Oahu,Land & Water,Achieve Pae Aina Sustainability,801,NULL,1
-    2014,Community Grant,Boys and Girls Club of Hawai'i ,85819,Kauai,Health,Decrease Chronic Disease Rates,810,546,1
-    2015,Community Grant,Hawaii Alliance for Community-Based Economic Development (HACBED) ,80000,Oahu,Land & Water,Achieve Pae Aina Sustainability,887,NULL,1
-    2013,Community Grant,Ka Ohana O Kalaupapa,53666,Statewide,Culture,Value History and Culture,959,NULL,1
-    2014,Community Grant,Mana Maoli ,148564,Statewide,Culture,Participate in Culture,1047,359,1
-    2013,Community Grant,Alternative Structures International,52000,Oahu,Land & Water,Achieve Pae Aina Sustainability,1265,NULL,1
-    2015,Community Grant,Mana Maoli ,148564,Statewide,Culture,Participate in Culture,1968,1223,1
-    2015,Community Grant,Kokua Kalihi Valley Comprehensive Family Services ,140000,Oahu,Land & Water,Achieve Pae Aina Sustainability,2087,NULL,1
-    2014,BOT Initiative,Polynesian Voyaging Society,300000,Statewide,Culture,Value History and Culture,2128,NULL,1
-    2014,BOT Initiative,University of Hawaii at Hilo,590000,Statewide,Education,Exceed Education Standards,2230,1606,1
-    2014,Community Grant,Kokua Kalihi Valley Comprehensive Family Services ,140000,Oahu,Land & Water,Achieve Pae Aina Sustainability,2663,NULL,1
-    2014,BOT Initiative,Native Hawaiian Education Association (NHEA),150000,Oahu,Education,Exceed Education Standards,3118,736,1
-    2013,Community Grant,Papahana Kuaola,100000,Oahu,Culture,Participate in Culture,3574,NULL,1
-    2013,BOT Initiative,Na Pua Noeau,1231140,Statewide,Education,Exceed Education Standards,4047,3399,1
-    2015,BOT Initiative,Kanu O Ka Aina Learning Ohana,1500000,Statewide,Education,Exceed Education Standards,4145,3088,1
-    2013,BOT Initiative,Kanu O Ka Aina Learning Ohana,1500000,Statewide,Education,Exceed Education Standards,4160,3224,1
-    2014,BOT Initiative,Kanu O Ka Aina Learning Ohana,1500000,Statewide,Education,Exceed Education Standards,4224,3202,1
-    2013,Community Grant,Lanai Culture and Heritage Center,38001.6,Lanai,Culture,Value History and Culture,13611,NULL,1
-    2013,Sponsorship,Agricultural Leadership Foundation of Hawaii,2500,Oahu,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,1
-    2013,Sponsorship,Aha Hipuu,3500,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,"Aha Punana Leo, Inc.",10000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2013,Sponsorship,Ahahui Olelo Hawaii ,11200,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Sponsorship,Alaska Federation of Natives,5000,Continent,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,Aloha Aina Foundation,2500,International,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,Aloha First,25000,Statewide,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,"Alu Like, Inc.",10000,Continent,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Sponsorship,American Cancer Society,1500,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2014,Sponsorship,American Cancer Society,2000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2015,Sponsorship,American Cancer Society,2000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2013,Sponsorship,American Diabetes Association,1000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2013,Sponsorship,American Diabetes Association,15000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2014,Sponsorship,American Diabetes Association,15000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2015,Sponsorship,American Diabetes Association,15000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2013,Sponsorship,American University,10355,Continent,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,American University,4645.14,Continent,Governance,Priority Level,NULL,NULL,1
-    2015,Sponsorship,American University,18500,Continent,Governance,Priority Level,NULL,NULL,1
-    2015,Sponsorship,American University,11336,Continent,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,APAICS,1700,Continent,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,"Asian and Pacific Islander American Vote, Inc.",25000,Statewide,Governance,Priority Level,NULL,NULL,1
-    2015,Sponsorship,Asian and Pacific Islander Association,5000,Continent,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,Association of Hawaiian Civic Clubs,25000,Oahu,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,"Awaiaulu, Inc. for UH Library and Information Science",3000,Continent,Education,Exceed Education Standards,NULL,NULL,1
-    2014,Sponsorship,Beamer Solomon Halau o Poohala,10164,International,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Bishop Museum,5000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Bishop Museum,10000,Oahu,Governance,Priority Level,NULL,NULL,1
-    2015,Sponsorship,Bishop Museum,3500,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,Bishop Museum,20000,International,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,CFA Hawaii,2500,Oahu,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,1
-    2014,Sponsorship,Chaminade University of Honolulu,8000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Sponsorship,Chaminade University of Honolulu,25000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,Conservation Council for Hawaii,500,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Conservation Council for Hawaii ,500,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2013,Sponsorship,Council for Native Hawaiian Advancement (CNHA),5000,Oahu,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,Council for Native Hawaiian Advancement (CNHA),40000,Oahu,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,Council for Native Hawaiian Advancement (CNHA),25000,Oahu,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,Damien and Marianne Foundation (The),5000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,David Ige Inauguration Organization,2584.95,Oahu,Governance,Priority Level,NULL,NULL,1
-    2013,BOT Initiative,Department of Hawaiian Home Lands,3000000,Statewide,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,2
-    2014,BOT Initiative,Department of Hawaiian Home Lands,3000000,Statewide,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,2
-    2015,BOT Initiative,Department of Hawaiian Home Lands,3000000,Statewide,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,2
-    2015,BOT Initiative,Department of Land and Natural Resources,94067,Statewide,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2013,Sponsorship,Department of Land and Natural Resources,25000,Statewide,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2013,BOT Initiative,Department of Land and Natural Resources,228000,Hawaii,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,2
-    2014,BOT Initiative,Department of Land and Natural Resources,228000,Hawaii,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,2
-    2014,Community Grant,"Effective Planning Innovative Communication, Inc. (DBA Epic Ohana) ",24120,Statewide,Economic Self-Sufficiency,Build Stability in Housing,NULL,85,1
-    2013,Sponsorship,"Effective Planning Innovative Communication, Inc. (DBA Epic Ohana) ",1000,Continent,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Sponsorship,Friends of Chinatown,2500,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,Friends of Hawaii Volcanoes National Park,5000,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Friends of Iolani Palace (The),5000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Friends of the Future,2000,Hawaii,Health,Improve Family Lifestyle,NULL,NULL,1
-    2015,Sponsorship,Habilitat,950,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Sponsorship,"Hale Mua Cultural Group, Inc",1000,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,Hale O Na Alii - Halau O Kalakaua,5000,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Haleiwa Main Street dba North Shore Chamber of Commerce,2500,Oahu,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,1
-    2015,Sponsorship,Halelea Arts Foundation,15000,Kauai,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,Halelea Arts Foundation,10000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Hawaii Academy of Recording Arts,20000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Hawaii Bariatric Society,500,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2013,Sponsorship,Hawaii Book and Music Festival,5000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Hawaii Conservation Alliance Foundation,25000,International,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2015,Sponsorship,Hawaii Conservation Alliance Foundation,10000,Hawaii,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2014,Sponsorship,Hawaii Habitat for Humanity,2500,Oahu,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,1
-    2013,Sponsorship,Hawaii Maoli,5000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Hawaii Maoli,25000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Hawaii Maoli,4000,Oahu,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,Hawaii Maoli,25000,Kauai,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,Hawaii Maoli,15000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Hawaii Maoli,15000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Hawaii Maoli,1000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Hawaii Maoli,5000,Oahu,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,Hawaii Maoli,1250,Oahu,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,Hawaii Maoli,2000,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2015,Sponsorship,Hawaii Maoli,3500,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,Hawaii Maoli,25000,Statewide,Governance,Priority Level,NULL,NULL,1
-    2015,Sponsorship,Hawaii Nature Center,3500,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2015,Sponsorship,Hawaii Ponoi Foundation,6700,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,Hawaii Psychological Association,5000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Sponsorship,Hawaii Public Charter School Network,1500,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2013,Sponsorship,Hawaiian Civic Club of Honolulu,3000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Sponsorship,Hawaiian Civic Club of Honolulu,3000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Sponsorship,Hawaiian Civic Club of Waimanalo,1000,Oahu,Culture,Participate in Culture,NULL,NULL,1
-    2014,Sponsorship,Hawaiian Education and Reinstatement Foundation,150,Oahu,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,Hawaiian Mission Houses Historic Site and Archives,5000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Hawaiinuiakea School of Hawaiian Knowledge,10000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Sponsorship,"Hiilei Aloha, LLC",20000,Molokai,Culture,Participate in Culture,NULL,NULL,1
-    2013,Sponsorship,Hiipaka,1000,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2014,Sponsorship,Hiipaka,25000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,Hiipaka,25000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,Hiipaka,2000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Historic Hawaii Foundation,5000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Historic Hawaii Foundation,3500,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Hoa Aina o Makaha,3000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2013,Sponsorship,Honpa Hongwanji Mission of Hawaii,15000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,Honpa Hongwanji Mission of Hawaii,3000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Hui Malama I Na Kupuna,4792.21,International,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Hui Pu Laka Hawaiian Civic Club,1000,Hawaii,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2013,Community Grant,Hula Preservation Society,89819,Statewide,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,I Ola Lahui,1200,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2014,BOT Initiative,Ka Huli a Haloa,50000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,"Ka Molokai Makahiki, Inc.",5000,Molokai,Culture,Participate in Culture,NULL,NULL,1
-    2015,Sponsorship,"Ka Molokai Makahiki, Inc.",6500,Molokai,Culture,Participate in Culture,NULL,NULL,1
-    2013,Sponsorship,Ka Ohana o Kalaupapa,5000,Molokai,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Ka Waianu o Haloa,25000,Maui,Education,Exceed Education Standards,NULL,NULL,1
-    2013,Sponsorship,KAHEA ,1000,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2013,Sponsorship,"Kai Loa, Inc.",15000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2013,Sponsorship,Kakoo Central Maui Hawaiian Civic Club,5000,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Kakoo Oiwi,2000,Continent,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2013,Sponsorship,"Kalihi-Palama Culture and Arts Society, Inc.",30000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Kamakakuokalani - The Center for Hawaiian Studies,20000,International,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,Kamehameha Schools,18000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Kanu Hawaii,1000,Statewide,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,Karuna Project (The),6000,Hawaii,Health,Improve Family Lifestyle,NULL,NULL,1
-    2014,Sponsorship,Kealohilani Serrao,1000,Hawaii,Culture,Participate in Culture,NULL,NULL,1
-    2013,Sponsorship,KEY Project ,1250,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Sponsorship,KFVE-TV,20000,Hawaii,Culture,Participate in Culture,NULL,NULL,1
-    2013,Sponsorship,King Kamehameha Celebration Commission,25000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Koolauloa Hawaiian Civic Club,5000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Kualoa-Heeia Ecumenical Youth (KEY) Project,1250,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Sponsorship,Kualoa-Heeia Ecumenical Youth (KEY) Project,1500,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Sponsorship,Lanai High and Elementary School,2500,Lanai,Education,Exceed Education Standards,NULL,NULL,1
-    2014,BOT Initiative,Lunalilo Home,100000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Sponsorship,Lunalilo Home,1000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2014,Sponsorship,Lunalilo Home,3500,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2014,Sponsorship,Lunalilo Home,3000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2014,Sponsorship,Lunalilo Home,1500,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2015,Sponsorship,Lunalilo Home,1000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2014,Sponsorship,Malie Foundation,3500,Kauai,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Mana Maoli ,5500,Oahu,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,Mana Maoli ,15750,Papahanaumokuakea,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2014,Sponsorship,Maunaloa Elementary School,2000,Molokai,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Sponsorship,Merrie Monarch Festival,9000,Statewide,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,"Moanalua Gardens Foundation, Inc.",10000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Molokai Community Service Council,2500,Molokai,Health,Improve Family Lifestyle,NULL,NULL,1
-    2014,Community Grant,Molokai General Hospital ,66200,Molokai,Health,Improve Family Lifestyle,NULL,65,1
-    2015,Community Grant,Molokai General Hospital ,67032,Molokai,Health,Improve Family Lifestyle,NULL,106,1
-    2013,Sponsorship,Molokai Middle School,5000,Molokai,Education,Exceed Education Standards,NULL,NULL,1
-    2013,Sponsorship,"Na Aikane o Maui, Inc.",10000,Maui,Culture,Participate in Culture,NULL,NULL,1
-    2014,Sponsorship,Na Koa Opio,1500,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Na Koa Opio for Hanakehau Learning Farm,5900,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2015,Sponsorship,Na Maka o Papahanaumokuakea,10000,International,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2014,Sponsorship,Na Moku Aupuni o Koolau Hui,25000,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Na Poe Kokua,10000,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Na Pualei o Likolehua,2000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,Na Pualei o Likolehua,2400,Oahu,Culture,Participate in Culture,NULL,NULL,1
-    2013,Sponsorship,Na Wahine o Ke Kai,2000,Molokai,Culture,Participate in Culture,NULL,NULL,1
-    2013,Sponsorship,Naalehu Theatre,3850,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,National American Indian Housing Council,2000,Continent,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,National American Indian Housing Council ,1000,Continent,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,National Congress of American Indians,5000,Continent,Governance,Priority Level,NULL,NULL,1
-    2015,Sponsorship,National Congress of American Indians,7500,Continent,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,National Indian Education Association,1000,Continent,Governance,Priority Level,NULL,NULL,1
-    2015,Sponsorship,National Indian Education Association,5000,Continent,Governance,Priority Level,NULL,NULL,1
-    2015,Sponsorship,National Indian Education Association,2500,Continent,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,National Museum of American Indians ,20000,Continent,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,Native Hawaiian Chamber of Commerce,5000,Oahu,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,1
-    2014,Sponsorship,Native Hawaiian Chamber of Commerce,10000,Oahu,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,1
-    2015,Sponsorship,Native Hawaiian Chamber of Commerce,10000,Oahu,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,1
-    2013,Sponsorship,Native Hawaiian Education Association (NHEA),20000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2014,Sponsorship,Native Hawaiian Education Association (NHEA),20000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2013,Sponsorship,Native Hawaiian Hospitality Association (NaHHA),3000,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2015,BOT Initiative,Native Hawaiian Legal Corporation,85000,Statewide,Governance,Priority Level,NULL,NULL,2
-    2015,Sponsorship,Native Hawaiian Organizations Association,1000,Oahu,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,1
-    2013,Sponsorship,Native Hawaiian Roll Commission,5000,Statewide,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,Nature Conservancy (The),24999,Statewide,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2014,Sponsorship,"Ohana Ministries, Inc.",3500,Molokai,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Sponsorship,Olelo Community Media,5000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Sponsorship,Olelo Community Media,500,Oahu,Governance,Priority Level,NULL,NULL,1
-    2015,Sponsorship,Olelo Community Media,10000,Oahu,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,Pacific American Foundation,2000,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2013,Sponsorship,PA'I Foundation,15000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,BOT Initiative,Papa Ola Lokahi,60000,Statewide,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2013,Sponsorship,Papa Ola Lokahi,3000,Statewide,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2013,Sponsorship,Papa Ola Lokahi,3000,Statewide,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Sponsorship,Papahana Kuaola,1500,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2014,Sponsorship,Papahana Kuaola,1750,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2013,Sponsorship,Papakolea Community Development Corporation,4500,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Papakolea Community Development Corporation,2500,Oahu,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,Papakolea Hawaiian Civic Club,1000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Parents and Children Together ,1500,Molokai,Health,Improve Family Lifestyle,NULL,NULL,1
-    2014,Sponsorship,Parents and Children Together ,2000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Sponsorship,Paukukalo Hawaiian Homes Community Association,2500,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Pohai o Kamehameha,1000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,Pohai o Kamehameha,1000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,Polynesian Voyaging Society,24999,Statewide,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2015,Sponsorship,Prince Kuhio Hawaiian Civic Club,2500,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Sponsorship,Research Corporation of the University of Hawaii,1500,Oahu,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,"Smithsonian Institution, National Museum of the American Indian",25000,Continent,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,"Smithsonian Institution, National Museum of the American Indian",25000,Continent,Governance,Priority Level,NULL,NULL,1
-    2015,Sponsorship,"Smithsonian Institution, National Museum of the American Indian",13000,Continent,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,Smithsonian National Museum of the American Indians ,13000,Continent,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,St. Augustine by the Sea Catholic Church,25000,International,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,"Supporting the Language of Kauai, Inc.",25000,Kauai,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Sponsorship,The Medical Foundation for the Study of the Environment,22180,Statewide,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2013,Sponsorship,United States Veterans Initiative,1000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2015,Sponsorship,University of Hawaii,15950,Continent,Governance,Priority Level,NULL,NULL,1
-    2015,Sponsorship,University of Hawaii,17000,Continent,Governance,Priority Level,NULL,NULL,1
-    2014,BOT Initiative,University of Hawaii - Office of Research Services,100000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,University of Hawaii Foundation,25000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2013,Sponsorship,University of Hawaii Foundation,500,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2013,Sponsorship,University of Hawaii Foundation,1972,Oahu,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,University of Hawaii Foundation,25000,Oahu,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,University of Hawaii Foundation,7515,Continent,Education,Exceed Education Standards,NULL,NULL,1
-    2014,Sponsorship,University of Hawaii Foundation,5000,Continent,Education,Exceed Education Standards,NULL,NULL,1
-    2014,Sponsorship,University of Hawaii Foundation,7671,Continent,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,University of Hawaii Foundation,3500,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2014,Sponsorship,University of Hawaii Foundation,4144.88,Oahu,Governance,Priority Level,NULL,NULL,1
-    2015,Sponsorship,University of Hawaii Foundation,1300,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Sponsorship,University of Hawaii Foundation,5000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Sponsorship,University of Hawaii Foundation,25000,Oahu,Governance,Priority Level,NULL,NULL,1
-    2014,Sponsorship,University of Sydney (the),2755,International,Education,Exceed Education Standards,NULL,NULL,1
-    2014,Sponsorship,Waianae Community Re-Development Corporation,7500,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2015,Sponsorship,Waianae Community Re-Development Corporation,2450,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2015,Sponsorship,Waianae Hawaiian Civic Club,2499,Oahu,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,Waianae Kai Hawaiian Homestead Association,25000,Oahu,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,1
-    2013,Sponsorship,Waianae Kai Hawaiian Homestead Association,5000,Oahu,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,1
-    2014,Sponsorship,Waianae Kai Hawaiian Homestead Association,25000,Oahu,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,1
-    2013,Sponsorship,Waikiki Community Center,650,Oahu,Culture,Participate in Culture,NULL,NULL,1
-    2013,Sponsorship,Waikiki Community Center,1000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Sponsorship,Waikiki Community Center,2500,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2015,Sponsorship,Waikiki Community Center,1500,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2015,Community Grant,Waimanalo Health Center ,130000,Oahu,Health,Improve Family Lifestyle,NULL,83,1
-    2014,Community Grant,Waimanalo Health Center ,130000,Oahu,Health,Improve Family Lifestyle,NULL,139,1
-    2014,Community Grant,Waimea Hawaiian Homesteaders Association ,135410,Hawaii,Land & Water,Achieve Pae Aina Sustainability,NULL,50,1
-    2015,Community Grant,Waimea Hawaiian Homesteaders Association ,127410,Hawaii,Land & Water,Achieve Pae Aina Sustainability,NULL,81,1
-    2014,Sponsorship,Waiola Church,2000,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2013,Sponsorship,Washington Pacific Committee,5200,Continent,Governance,Priority Level,NULL,NULL,1
-    2013,Sponsorship,West Honolulu Rotary Club,800,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,Aha Kukui o Molokai,7566,Molokai,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2013,BOT Initiative,"Alu Like, Inc.",830000,Statewide,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Ahahui,Big Island Resource Conservtion and Development Council,7000,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2015,Ahahui,Big Island Resource Conservtion and Development Council,4000,Hawaii,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Ahahui,Bishop Museum,5000,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2014,Ahahui,Bishop Museum,5000,Oahu,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,1
-    2015,Ahahui,Bishop Museum,5000,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2013,BOT Initiative,Consuelo Zobel Alger Foundation,50000,Molokai,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Ahahui,Department of Human Services/Maui Adult Protection and Community Services,3000,Maui,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Ahahui,East Maui Taro Festival,10000,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2014,Ahahui,East Maui Taro Festival,10000,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2015,Ahahui,East Maui Taro Festival,9000,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2015,Ahahui,Friends of Kona Pacific Public Charter School,5600,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2014,Ahahui,Friends of Molokai High and Middle Schools Foundation,9000,Molokai,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Ahahui,Friends of Molokai High and Middle Schools Foundation,8500,Molokai,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Ahahui,"Garden Island Resource Conservation & Development, Inc.",9000,Kauai,Culture,Participate in Culture,NULL,NULL,1
-    2013,Ahahui,"Hale Mua Cultural Group, Inc",5000,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,Hana Cultural Center,7500,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2014,Ahahui,Hana Cultural Center ,4100,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,Hawaii Academy of Recording Arts,10000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,Hawaii Book and Music Festival,7700,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Ahahui,Hawaii Book and Music Festival,6000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Ahahui,Hawaii Book and Music Festival,7000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Ahahui,Hawaii Construction Career Days,4000,Maui,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,1
-    2013,Ahahui,Hawaii Council for the Humanities,5000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,Hawaiian Canoe Racing Association,5000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Ahahui,Hawaiian Canoe Racing Association,5000,Kauai,Culture,Value History and Culture,NULL,NULL,1
-    2015,Ahahui,Hawaiian Canoe Racing Association,6000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,Hui No Ke Ola Pono,10000,Maui,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2013,Ahahui,Hui o Laka,4000,Kauai,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,Ka Meheu Ohu o Ka Honu,7500,Hawaii,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2014,Ahahui,Ka Meheu Ohu O Ka Honu,3000,Hawaii,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2014,Ahahui,"Ka Molokai Makahiki, Inc.",8200,Molokai,Culture,Participate in Culture,NULL,NULL,1
-    2014,Ahahui,"Ka Molokai Makahiki, Inc.",6000,Molokai,Education,Exceed Education Standards,NULL,NULL,1
-    2014,Ahahui,"Kai Loa, Inc.",7600,Oahu,Culture,Participate in Culture,NULL,NULL,1
-    2015,Ahahui,"Kai Loa, Inc.",9000,Oahu,Culture,Participate in Culture,NULL,NULL,1
-    2015,Ahahui,Kailapa Community Association,5000,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,Kanalu,10000,Oahu,Culture,Participate in Culture,NULL,NULL,1
-    2015,Ahahui,Kauakoko Foundation,5090,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Ahahui,Ke Hoola o Lima Lani,3610,Kauai,Health,Improve Family Lifestyle,NULL,NULL,1
-    2014,Ahahui,Komike Makua Punana Leo o Honolulu,9500,Oahu,Culture,Participate in Culture,NULL,NULL,1
-    2014,Ahahui,Koolauloa Commmunity Health and Wellness Center,3000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2014,Ahahui,Kuaaina Ulu Auamo ,8000,Molokai,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2015,Ahahui,Kuaaina Ulu Auamo ,3000,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2014,Ahahui,Kula No Na Poe Hawaii,5300,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2015,Ahahui,Kula No Na Poe Hawaii,6000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2014,Ahahui,Laiopua 2020,6210,Hawaii,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2015,Ahahui,Laiopua 2020,5500,Hawaii,Health,Improve Family Lifestyle,NULL,NULL,1
-    2015,Ahahui,Laiopua 2020,5500,Hawaii,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Ahahui,"Making Dreams Come True, Valley of Rainbows",10000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2014,Ahahui,"Making Dreams Come True, Valley of Rainbows",7000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Ahahui,"Making Dreams Come True, Valley of Rainbows",8000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2014,Ahahui,Malie Foundation,10000,Kauai,Culture,Participate in Culture,NULL,NULL,1
-    2015,Ahahui,Maui Historical Society,5000,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,Maui Native Hawaiian Chamber of Commerce,5000,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2014,Ahahui,Maui Native Hawaiian Chamber of Commerce,5000,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2014,Ahahui,Maui Nui Botanical Gardens Inc.,9990,Maui,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2014,Ahahui,"Moanalua Gardens Foundation, Inc.",10000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Ahahui,"Moanalua Gardens Foundation, Inc.",10000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,Moana's Hula Halau,5000,Molokai,Culture,Value History and Culture,NULL,NULL,1
-    2014,Ahahui,Moana's Hula Halau,4000,Molokai,Culture,Value History and Culture,NULL,NULL,1
-    2015,Ahahui,Moana's Hula Halau,6500,Molokai,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,Na Kalai Waa,5000,Hawaii,Culture,Participate in Culture,NULL,NULL,1
-    2015,Ahahui,Na Wahine O Ke Kai,4000,Multiple,Culture,Participate in Culture,NULL,NULL,1
-    2014,Ahahui,Naalehu Theatre,9000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Ahahui,Naalehu Theatre,8000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Ahahui,National Tropical Botanical Garden,7000,Kauai,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2015,Ahahui,North Kohala Community Resource Center,5000,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,Pacific American Foundation,10000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Ahahui,PA'I Foundation,10000,Molokai,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,PA'I Foundation,3000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Ahahui,PA'I Foundation,10000,Oahu,Culture,Participate in Culture,NULL,NULL,1
-    2014,Ahahui,PA'I Foundation,6600,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Ahahui,PA'I Foundation,7000,Oahu,Culture,Participate in Culture,NULL,NULL,1
-    2013,Ahahui,Papakolea Community Development Corporation,10000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2014,Ahahui,Project Vision Hawaii,4000,Hawaii,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2015,Ahahui,Project Vision Hawaii,7400,Molokai,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Ahahui,Puuhonua Society,5500,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,"Tri-Isle Resource Conservation & Development Council, Inc",5000,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2014,Ahahui,"Tri-Isle Resource Conservation & Development Council, Inc",4000,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2015,Ahahui,"Tri-Isle Resource Conservation & Development Council, Inc",6000,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,Univeristy of Hawaii - Office of Research Services,5000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,Univeristy of Hawaii - Office of Research Services,5000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,Ahahui,University of Hawaii - Office of Research Services,5500,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,University of Hawaii Foundation,10000,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2015,Ahahui,University of Hawaii Foundation,8000,Oahu,Education,Exceed Education Standards,NULL,NULL,1
-    2015,Ahahui,Waianae Coast Comprehensive Health Center,1000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2013,Ahahui,"Waianae District Comprehensive Health & Hospital Board, Inc.",3000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2013,Ahahui,Waimanalo Health Center,10000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2015,Ahahui,Women Helping Women,5000,Maui,Culture,Value History and Culture,NULL,NULL,1
-    2013,Ahahui,YMCA of Honolulu,10000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2014,Ahahui,YMCA of Honolulu,8000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2015,Ahahui,YMCA of Honolulu,8000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2015,BOT Initiative,Consuelo Zobel Alger Foundation,90000,Molokai,Health,Improve Family Lifestyle,NULL,NULL,2
-    2014,BOT Initiative,Department of Labor and Industrial Relations,250000,Statewide,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,2
-    2015,BOT Initiative,Department of Labor and Industrial Relations,250000,Statewide,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,2
-    2014,Community Grant,Goodwill Industries of Hawaii ,125000,Hawaii,Education,Exceed Education Standards,NULL,NULL,2
-    2015,Community Grant,Goodwill Industries of Hawaii ,125000,Hawaii,Education,Exceed Education Standards,NULL,NULL,2
-    2014,Community Grant,Habitat for Humanity West Hawaii ,89000,Hawaii,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,2
-    2015,Community Grant,Habitat for Humanity West Hawaii ,204455,Hawaii,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,2
-    2015,Community Grant,Hawaiian Community Assets,24550,Statewide,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,2
-    2014,Community Grant,Hawaiian Community Assets ,224095,Statewide,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,2
-    2014,Community Grant,Hui Aloha Kiholo ,39452,Hawaii,Culture,Participate in Culture,NULL,NULL,2
-    2015,Community Grant,Hui Aloha Kiholo ,6575,Hawaii,Culture,Participate in Culture,NULL,NULL,2
-    2014,Community Grant,Kakoo Oiwi ,180000,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,2
-    2015,Community Grant,Kakoo Oiwi ,88000,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,2
-    2014,Community Grant,Kauai Community College ,150000,Kauai,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,2
-    2015,Community Grant,Kauai Community College ,100000,Kauai,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,2
-    2014,Community Grant,Kuaaina Ulu Auamo ,114327,Statewide,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,2
-    2015,Community Grant,Kuaaina Ulu Auamo ,114327,Statewide,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,2
-    2014,BOT Initiative,Living Life Source Foundation,200000,Hawaii,Health,Improve Family Lifestyle,NULL,NULL,2
-    2014,Community Grant,"Molokai Habitat for Humanity, Inc. ",142785,Molokai,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,2
-    2015,Community Grant,"Molokai Habitat for Humanity, Inc. ",147215,Molokai,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,2
-    2015,BOT Initiative,Native Hawaiian Legal Corporation,135804,Statewide,Governance,Priority Level,NULL,NULL,2
-    2014,Community Grant,Native Nations Education Foundation ,120000,Hawaii,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,2
-    2015,Community Grant,Native Nations Education Foundation ,80000,Hawaii,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,2
-    2014,Community Grant,North Hawaii Community Hospital,103800,Hawaii,Health,Improve Family Lifestyle,NULL,NULL,2
-    2015,Community Grant,North Hawaii Community Hospital,102968,Hawaii,Health,Improve Family Lifestyle,NULL,NULL,2
-    2015,BOT Initiative,University of Hawaii - Office of Research Services,218855,Oahu,Education,Exceed Education Standards,NULL,NULL,2
-    2015,BOT Initiative,University of Hawaii at Hilo,896232,Statewide,Education,Exceed Education Standards,NULL,NULL,2
-    2015,Ahahui,Hawai‘i Maoli,8800,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2014,BOT Initiative,Univeristy of Hawaii - Office of Research Services,187000,Statewide,Education,Exceed Education Standards,NULL,NULL,1
-    2013,BOT Initiative,Chaminade University of Honolulu,30000,Oahu,Education,Exceed Education Standards,6,6,1
-    2015,BOT Initiative,Chaminade University of Honolulu,33000,Oahu,Education,Exceed Education Standards,6,6,1
-    2015,BOT Initiative,Akamai Foundation,2598000,Statewide,Governance,Priority Level,NULL,NULL,2
-    2015,Sponsorship,Hawai‘i Maoli,15000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2015,Sponsorship,Council for Native Hawaiian Advancement (CNHA),25000,Oahu,Governance,Priority Level,NULL,NULL,1
-    2015,Sponsorship,Hawai‘i Maoli,25000,Oahu,Governance,Priority Level,NULL,NULL,1
-    2015,Sponsorship,Waianae Kai Hawaiian Homestead Association,25000,Oahu,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,1
-    2016,BOT Initiative,Hawaii Community Foundation,250000,Statewide,Education,Exceed Education Standards,NULL,NULL,2
-    2016,Sponsorship,Hiipaka,10000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2016,BOT Initiative,Kanu O Ka Aina Learning Ohana,1500000,Statewide,Education,Exceed Education Standards,NULL,NULL,2
-    2016,Ahahui,Na Wahine O Ke Kai,6000,Multiple,Culture,Value History and Culture,1500,NULL,1
-    2016,Ahahui,YMCA of Honolulu,7000,Oahu,Health,Improve Family Lifestyle,5392,NULL,1
-    2016,Community Grant,Edith Kanakaole Foundation,150000,Hawaii,Culture,Participate in Culture,NULL,NULL,2
-    2016,Community Grant,Hui Malama Ola Na Oiwi,64343,Hawaii,Culture,Participate in Culture,NULL,NULL,2
-    2016,Community Grant,Kanehunamoku Voyaging Academy,150000,Oahu,Culture,Participate in Culture,NULL,NULL,2
-    2016,Community Grant,Kohe Malamalama o Kanaloa - Protect Kahoolawe Fund,67400,Statewide,Culture,Participate in Culture,NULL,NULL,2
-    2016,Community Grant,Kula No Na Poe Hawaii,20000,Oahu,Culture,Participate in Culture,NULL,NULL,2
-    2016,Community Grant,PA'I Foundation,48257,Statewide,Culture,Participate in Culture,NULL,NULL,2
-    2016,BOT Initiative,The Estria Foundation,226500,Statewide,Culture,Value History and Culture,NULL,NULL,2
-    2016,Ahahui,"Aha Punana Leo, Inc.",7000,Hawaii,Culture,Value History and Culture,2000,NULL,1
-    2016,Ahahui,Ahahui Kiwila Hawaii O Moikeha,5000,Kauai,Culture,Value History and Culture,NULL,NULL,1
-    2016,Ahahui,East Maui Taro Festival,7000,Maui,Culture,Value History and Culture,4000,NULL,1
-    2016,Ahahui,Friends of the Future,5000,Hawaii,Culture,Value History and Culture,800,NULL,1
-    2016,Ahahui,Hawaii Book and Music Festival,7000,Oahu,Culture,Value History and Culture,750,NULL,1
-    2016,Ahahui,Hawaiian Canoe Racing Association,8000,Hawaii,Culture,Value History and Culture,6000,NULL,1
-    2016,Ahahui,Hawaiian Kamalii Inc.,6000,Molokai,Culture,Value History and Culture,1584,NULL,1
-    2016,Ahahui,Institute for Native Pacific Education and Culture,6500,Hawaii,Culture,Value History and Culture,71,NULL,1
-    2016,Ahahui,"Ka Molokai Makahiki, Inc.",7000,Molokai,Culture,Participate in Culture,3000,NULL,1
-    2016,Ahahui,"Kai Loa, Inc.",7000,Oahu,Culture,Participate in Culture,1000,NULL,1
-    2016,Ahahui,"Kalihi-Palama Culture and Arts Society, Inc.",5000,Oahu,Culture,Value History and Culture,935,NULL,1
-    2016,Ahahui,Maui Historical Society,7000,Maui,Culture,Value History and Culture,550,NULL,1
-    2016,Ahahui,Maui Native Hawaiian Chamber of Commerce,8000,Maui,Culture,Value History and Culture,300,NULL,1
-    2016,Ahahui,"Moanalua Gardens Foundation, Inc.",10000,Oahu,Culture,Value History and Culture,24000,NULL,1
-    2016,Ahahui,Moana's Hula Halau,6000,Molokai,Culture,Value History and Culture,700,NULL,1
-    2016,Ahahui,Naalehu Theatre,6000,Oahu,Culture,Value History and Culture,3000,NULL,1
-    2016,Ahahui,North Kohala Community Resource Center,6000,Hawaii,Culture,Value History and Culture,2000,NULL,1
-    2016,Ahahui,Puuhonua Society,5000,Oahu,Culture,Value History and Culture,4500,NULL,1
-    2016,Ahahui,"Uhane Pohaku Na Moku O Hawaii, Inc.",2300,Hawaii,Culture,Value History and Culture,500,NULL,1
-    2016,Ahahui,University of Hawaii - Leeward Community College,6500,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2016,Ahahui,Young Women's Christian Association of Oahu,5000,Oahu,Culture,Value History and Culture,849,NULL,1
-    2016,Community Grant,After School All-Stars,236975,Multiple,Education,Exceed Education Standards,NULL,NULL,2
-    2016,Community Grant,Boys and Girls Club of Maui,184000,Maui,Education,Exceed Education Standards,NULL,NULL,2
-    2016,Community Grant,Educational Services Hawaii Foundation,89030,Oahu,Education,Exceed Education Standards,NULL,NULL,2
-    2016,Community Grant,Hui Malama Learning Center,219995,Maui,Education,Exceed Education Standards,NULL,NULL,2
-    2016,BOT Initiative,Chaminade University of Honolulu,33000,Oahu,Education,Exceed Education Standards,NULL,NULL,2
-    2016,BOT Initiative,University of Hawaii Foundation,100000,Statewide,Education,Exceed Education Standards,NULL,NULL,2
-    2016,BOT Initiative,Univeristy of Hawaii - Office of Research Services,250000,Statewide,Education,Exceed Education Standards,NULL,NULL,2
-    2016,Community Grant,Boys and Girls Club of Hawai'i,115000,Hawaii,Health,Decrease Chronic Disease Rates,NULL,NULL,2
-    2016,Community Grant,I Ola Lahui,180000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,2
-    2016,Community Grant,Kokua Kalihi Valley Comprehensive Family Services,143000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,2
-    2016,Community Grant,Kualapuu Public Conversion Charter School,135256,Molokai,Health,Decrease Chronic Disease Rates,NULL,NULL,2
-    2016,Community Grant,Salvation Army-Family Treatment Services,112000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,2
-    2016,Community Grant,The Queen's Medical Center,190000,Maui,Health,Decrease Chronic Disease Rates,NULL,NULL,2
-    2016,BOT Initiative,"Kauai Food Bank, Inc.",38000,Kauai,Health,Improve Family Lifestyle,NULL,NULL,2
-    2016,BOT Initiative,Lunalilo Home,597468,Oahu,Health,Improve Family Lifestyle,NULL,NULL,2
-    2016,Ahahui,Kula No Na Poe Hawaii,7000,Oahu,Health,Improve Family Lifestyle,450,NULL,1
-    2016,Ahahui,"Maui Family Support Services, Inc.",6500,Maui,Health,Improve Family Lifestyle,300,NULL,1
-    2016,Community Grant,Hawaiian Community Assets,265059,Statewide,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,2
-    2016,Community Grant,"Effective Planning Innovative Communication, Inc. (DBA Epic Ohana)",16675,Statewide,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,2
-    2016,Community Grant,Council for Native Hawaiian Advancement (CNHA),174390,Statewide,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,2
-    2016,BOT Initiative,Department of Hawaiian Home Lands,3000000,Statewide,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,2
-    2016,Community Grant,Parents and Children Together,261500,Oahu,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,2
-    2016,Community Grant,Goodwill Industries of Hawaii ,221550,Hawaii,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,2
-    2016,Community Grant,University of Hawaii on behalf of Maui College,175000,Maui,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,2
-    2016,Ahahui,Hawaii Construction Career Days,10000,Hawaii,Economic Self-Sufficiency,Increase Family Income,700,NULL,1
-    2016,Ahahui,Hawaii First Community Ventures,6500,Hawaii,Economic Self-Sufficiency,Increase Family Income,152,NULL,1
-    2016,Community Grant,Ka Honua Momona International,100000,Molokai,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,2
-    2016,Community Grant,Kakoo Oiwi,121700,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,2
-    2016,Community Grant,Kokua Kalihi Valley Comprehensive Family Services ,100000,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,2
-    2016,Community Grant,Kuaaina Ulu Auamo ,100000,Statewide,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,2
-    2016,Community Grant,Ma Ka Hana Ka Ike,78300,Maui,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,2
-    2016,BOT Initiative,Hawaii Community Foundation,50000,Statewide,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2016,BOT Initiative,Kumano I Ke Ala O Makaweli,13500,Kauai,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,2
-    2016,BOT Initiative,The Trust for Public Land,500000,Hawaii,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2016,Ahahui,Kailapa Community Association,8000,Hawaii,Land & Water,Achieve Pae Aina Sustainability,100,NULL,1
-    2016,Ahahui,Na Mamo o Muolea,9700,Maui,Land & Water,Achieve Pae Aina Sustainability,500,NULL,1
-    2016,Ahahui,North Shore Community Land Trust,7000,Oahu,Land & Water,Achieve Pae Aina Sustainability,370,NULL,1
-    2016,Sponsorship,Bishop Museum,3500,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Edith Kanakaole Foundation,25000,Hawaii,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Hawaii Convention Center,4950,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Hawaii Maoli,10000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Historic Hawaii Foundation,3500,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,"Hui o Hee Nalu, Inc.",1000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Kamaaha Education Initiative,5000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Kaonohi Foundation,1500,Continent,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Ke Kukui Foundation,1000,Continent,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Let's Roll Foundation,1000,Continent,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Living Life Source Foundation,10000,Polynesia,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Na Koa Opio,1000,Hawaii,Culture,Participate in Culture,NULL,NULL,1
-    2016,Sponsorship,Na Pualei o Likolehua,5000,Hawaii,Culture,Participate in Culture,NULL,NULL,1
-    2016,Sponsorship,Native Hawaiian Legal Corporation,1000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Pacific Justice and Reconciliation Center,1000,Oahu,Culture,Participate in Culture,NULL,NULL,1
-    2016,Sponsorship,Pohai o Kamehameha,1000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Waimea Hawaiian Homesteaders Association,10000,Molokai,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,West Honolulu Rotary Club,1000,Oahu,Culture,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Ahupuaa o Molokai,1250,Molokai,Education,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Koolaupoko Hawaiian Civic Club,2500,Oahu,Education,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Lau Kanaka no Hawaii,500,Continent,Education,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Mana Maoli,1500,Oahu,Education,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Piilani Hawaiian Civic Club of Colorado,1500,Continent,Education,Value History and Culture,NULL,NULL,1
-    2016,Sponsorship,Asian and Pacific Islander Association,5000,Continent,Governance,Priority Level,NULL,NULL,1
-    2016,Sponsorship,Association of Hawaiian Civic Clubs,5000,Continent,Governance,Priority Level,NULL,NULL,1
-    2016,Sponsorship,Council for Native Hawaiian Advancement (CNHA),10000,Oahu,Governance,Priority Level,NULL,NULL,1
-    2016,Sponsorship,Hawaii Maoli,10000,Maui,Governance,Priority Level,NULL,NULL,1
-    2016,Sponsorship,Hawaii Wildlife Fund,20000,Statewide,Governance,Priority Level,NULL,NULL,1
-    2016,Sponsorship,National Congress of American Indians,5000,Continent,Governance,Priority Level,NULL,NULL,1
-    2016,Sponsorship,National Indian Education Association,2500,Continent,Governance,Priority Level,NULL,NULL,1
-    2016,Sponsorship,National Indian Education Association,5000,Continent,Governance,Priority Level,NULL,NULL,1
-    2016,Sponsorship,"Smithsonian Institution, National Museum of the American Indian",10000,Continent,Governance,Priority Level,NULL,NULL,1
-    2016,Sponsorship,The Biographical Research Center,20000,Statewide,Governance,Priority Level,NULL,NULL,1
-    2016,Sponsorship,University of Hawaii Foundation on behalf of Kamakakuokalani ,2500,Continent,Governance,Priority Level,NULL,NULL,1
-    2016,Sponsorship,"ALU LIKE, Inc.",5000,Continent,Health,Improve Family Lifestyle,NULL,NULL,1
-    2016,Sponsorship,American Diabetes Association,10000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2016,Sponsorship,Asian and Pacific Islander American Health Forum,25000,Continent,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2016,Sponsorship,Hawaii Psychological Association,1000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2016,Sponsorship,"Hoomau Ke Ola, Inc.",25000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2016,Sponsorship,Kualoa-Heeia Ecumenical Youth (KEY) Project,1600,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2016,Sponsorship,Lunalilo Home,3000,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2016,Sponsorship,Lunalilo Home,200,Oahu,Health,Improve Family Lifestyle,NULL,NULL,1
-    2016,Sponsorship,Pacific Islander Health Partnership,4500,Continent,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2016,Sponsorship,PA'I Foundation,6900,Polynesia,Health,Improve Family Lifestyle,NULL,NULL,1
-    2016,Sponsorship,Peninsula Conflict Resolution Center,2000,Continent,Health,Improve Family Lifestyle,NULL,NULL,1
-    2016,Sponsorship,The Queen's Medical Center ,5000,Oahu,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2016,Sponsorship,University of Hawaii - Office of Research Services on behalf of John A. Burns School of Medicine,23913,Statewide,Health,Decrease Chronic Disease Rates,NULL,NULL,1
-    2016,Sponsorship,Hawaii Habitat for Humanity,4000,Continent,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,1
-    2016,Sponsorship,Hawaiian Community Assets,2650,Continent,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,1
-    2016,Sponsorship,Hoolehua Homestead Association,750,Molokai,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,1
-    2016,Sponsorship,Waianae Kai Hawaiian Homestead Association,10000,Oahu,Economic Self-Sufficiency,Build Stability in Housing,NULL,NULL,1
-    2016,Sponsorship,Native Hawaiian Chamber of Commerce,10000,Oahu,Economic Self-Sufficiency,Increase Family Income,NULL,NULL,1
-    2016,Sponsorship,Ala Kahakai Trail Association,2000,Hawaii,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2016,Sponsorship,Kailapa Community Association,2000,Hawaii,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2016,Sponsorship,Kanehunamoku Voyaging Academy,18860,Statewide,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2016,Sponsorship,Kokua Kalihi Valley Comprehensive Family Services ,750,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2016,Sponsorship,Kure Atoll Conservancy,4999.99,Statewide,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2016,Sponsorship,"National Marine Sanctuary Foundation, Inc.",10000,Statewide,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2016,Sponsorship,Papahana Kuaola,1750,Oahu,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    2016,Sponsorship,The Medical Foundation for the Study of the Environment,22180,Statewide,Land & Water,Achieve Pae Aina Sustainability,NULL,NULL,1
-    </pre>
-
-    <script type="text/javascript">
-    $(function () {
-                       // draw chart
-                       $('#container').highcharts({
-                       chart: {
-                           type: 'column'
-                       },
-                       title: {
-                           text: 'OHA Grant Listings'
-                       },
-                       subtitle: {
-                            text: 'Input Data from CSV file'
-                       },
-                       data: {
-                            csv: document.getElementById('csv').innerHTML
-                       },
-                       plotOptions: {
-                          series: {
-                            marker: {
-                              enabled: false
-                            }
-                          }
-                       },
-                       series: []
-                   });
-               });
-           });
-    </script>
-
   </head>
 
   <body>
@@ -709,7 +99,615 @@
         </div>
       </div>
 
-      <div id="container" style="height: 400px"></div>
+      <div id="container" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+      <pre id="csv" style="display:none">Grant Type,Fiscal Year
+      Community Grant,2014
+      BOT Initiative,2014
+      Community Grant,2013
+      Community Grant,2013
+      Community Grant,2014
+      Community Grant,2013
+      BOT Initiative,2014
+      Community Grant,2013
+      BOT Initiative,2014
+      Community Grant,2014
+      Community Grant,2015
+      Community Grant,2013
+      Community Grant,2015
+      Community Grant,2013
+      Community Grant,2013
+      Community Grant,2013
+      Community Grant,2015
+      Community Grant,2015
+      Community Grant,2013
+      Community Grant,2015
+      Community Grant,2013
+      Community Grant,2013
+      Community Grant,2014
+      Community Grant,2014
+      Community Grant,2014
+      Community Grant,2015
+      Community Grant,2013
+      Community Grant,2015
+      Community Grant,2013
+      Community Grant,2013
+      Community Grant,2013
+      BOT Initiative,2015
+      Community Grant,2013
+      BOT Initiative,2013
+      Community Grant,2014
+      BOT Initiative,2015
+      BOT Initiative,2014
+      Community Grant,2013
+      Community Grant,2014
+      Community Grant,2013
+      BOT Initiative,2013
+      BOT Initiative,2014
+      Community Grant,2013
+      Community Grant,2015
+      Community Grant,2014
+      Community Grant,2015
+      Community Grant,2014
+      Community Grant,2014
+      Community Grant,2014
+      Community Grant,2015
+      Community Grant,2013
+      Community Grant,2014
+      Community Grant,2015
+      Community Grant,2013
+      Community Grant,2014
+      Community Grant,2013
+      Community Grant,2014
+      Community Grant,2014
+      Community Grant,2015
+      Community Grant,2015
+      Community Grant,2015
+      Community Grant,2013
+      Community Grant,2015
+      BOT Initiative,2013
+      Community Grant,2013
+      Community Grant,2013
+      Community Grant,2015
+      Community Grant,2015
+      Community Grant,2014
+      Community Grant,2014
+      Community Grant,2015
+      Community Grant,2013
+      Community Grant,2014
+      Community Grant,2013
+      Community Grant,2015
+      Community Grant,2015
+      BOT Initiative,2014
+      BOT Initiative,2014
+      Community Grant,2014
+      BOT Initiative,2014
+      Community Grant,2013
+      BOT Initiative,2013
+      BOT Initiative,2015
+      BOT Initiative,2013
+      BOT Initiative,2014
+      Community Grant,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2015
+      BOT Initiative,2013
+      BOT Initiative,2014
+      BOT Initiative,2015
+      BOT Initiative,2015
+      Sponsorship,2013
+      BOT Initiative,2013
+      BOT Initiative,2014
+      Community Grant,2014
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2014
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2014
+      Sponsorship,2013
+      Community Grant,2013
+      Sponsorship,2014
+      BOT Initiative,2014
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2013
+      BOT Initiative,2014
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2013
+      Community Grant,2014
+      Community Grant,2015
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2013
+      BOT Initiative,2015
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2013
+      BOT Initiative,2014
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2015
+      Sponsorship,2015
+      BOT Initiative,2014
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2014
+      Sponsorship,2014
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2013
+      Sponsorship,2013
+      Sponsorship,2014
+      Sponsorship,2015
+      Community Grant,2015
+      Community Grant,2014
+      Community Grant,2014
+      Community Grant,2015
+      Sponsorship,2014
+      Sponsorship,2013
+      Sponsorship,2013
+      Ahahui,2013
+      BOT Initiative,2013
+      Ahahui,2013
+      Ahahui,2015
+      Ahahui,2013
+      Ahahui,2014
+      Ahahui,2015
+      BOT Initiative,2013
+      Ahahui,2013
+      Ahahui,2013
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2015
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2015
+      Ahahui,2013
+      Ahahui,2013
+      Ahahui,2014
+      Ahahui,2013
+      Ahahui,2013
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2014
+      Ahahui,2013
+      Ahahui,2013
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2013
+      Ahahui,2013
+      Ahahui,2013
+      Ahahui,2014
+      Ahahui,2014
+      Ahahui,2014
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2015
+      Ahahui,2013
+      Ahahui,2015
+      Ahahui,2015
+      Ahahui,2014
+      Ahahui,2014
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2015
+      Ahahui,2013
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2013
+      Ahahui,2014
+      Ahahui,2014
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2013
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2013
+      Ahahui,2015
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2013
+      Ahahui,2013
+      Ahahui,2013
+      Ahahui,2014
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2013
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2015
+      Ahahui,2013
+      Ahahui,2014
+      Ahahui,2015
+      Ahahui,2013
+      Ahahui,2013
+      Ahahui,2014
+      Ahahui,2013
+      Ahahui,2015
+      Ahahui,2015
+      Ahahui,2013
+      Ahahui,2013
+      Ahahui,2015
+      Ahahui,2013
+      Ahahui,2014
+      Ahahui,2015
+      BOT Initiative,2015
+      BOT Initiative,2014
+      BOT Initiative,2015
+      Community Grant,2014
+      Community Grant,2015
+      Community Grant,2014
+      Community Grant,2015
+      Community Grant,2015
+      Community Grant,2014
+      Community Grant,2014
+      Community Grant,2015
+      Community Grant,2014
+      Community Grant,2015
+      Community Grant,2014
+      Community Grant,2015
+      Community Grant,2014
+      Community Grant,2015
+      BOT Initiative,2014
+      Community Grant,2014
+      Community Grant,2015
+      BOT Initiative,2015
+      Community Grant,2014
+      Community Grant,2015
+      Community Grant,2014
+      Community Grant,2015
+      BOT Initiative,2015
+      BOT Initiative,2015
+      Ahahui,2015
+      BOT Initiative,2014
+      BOT Initiative,2013
+      BOT Initiative,2015
+      BOT Initiative,2015
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2015
+      Sponsorship,2015
+      BOT Initiative,2016
+      Sponsorship,2016
+      BOT Initiative,2016
+      Ahahui,2016
+      Ahahui,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      BOT Initiative,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      BOT Initiative,2016
+      BOT Initiative,2016
+      BOT Initiative,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      BOT Initiative,2016
+      BOT Initiative,2016
+      Ahahui,2016
+      Ahahui,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      BOT Initiative,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      Ahahui,2016
+      Ahahui,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      Community Grant,2016
+      BOT Initiative,2016
+      BOT Initiative,2016
+      BOT Initiative,2016
+      Ahahui,2016
+      Ahahui,2016
+      Ahahui,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      Sponsorship,2016
+      </pre>
+
+      <script type="text/javascript">
+	$(function () {
+		$('#container').highcharts({
+				chart: {
+					type: 'column'
+				},
+
+			title: {
+				text: 'Fruit Consumtion'
+			},
+
+			subtitle: {
+				text: 'Data input from CSV'
+			},
+
+			data: {
+				csv: document.getElementById('csv').innerHTML
+			},
+
+			plotOptions: {
+				series: {
+					marker: {
+						enabled: false
+					}
+				}
+			},
+			series:[]
+		});
+	});
+</script>
 
       <div ng-app="oha">
         <div ui-view class="slide-left"></div>
@@ -732,7 +730,6 @@
       <!-- Bootstrap core JavaScript
       ================================================== -->
       <!-- Placed at the end of the document so the pages load faster -->
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
       <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
       <!--
