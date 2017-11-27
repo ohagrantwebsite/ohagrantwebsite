@@ -624,13 +624,6 @@
 
     <script type="text/javascript">
     $(function () {
-                   var processed_json = new Array();
-                   $.getJSON('OHAtable.json', function(data) {
-                       // Populate series
-                       for (i = 0; i < data.length; i++){
-                           processed_json.push([data[i].key, data[i].value]);
-                       }
-
                        // draw chart
                        $('#container').highcharts({
                        chart: {
