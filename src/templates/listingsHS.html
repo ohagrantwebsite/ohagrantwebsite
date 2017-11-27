@@ -33,12 +33,50 @@
 	<!-- Highcharts scripts -->
 	<script src="/static/highcharts/code/highcharts.js"></script>
 	<script src="/static/highcharts/code/modules/exporting.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 	<!-- Angular App scripts -->
 	<script src="static/js/app.js"></script>
 	<script src="static/js/routes.js"></script>
 	<script src="static/js/listings.js"></script>
-	<script src="static/js/listingshichart.js"></script>
+
+	<script type="text/javascript">
+	$(function () {
+                 var processed_json = new Array();
+                 $.getJSON('OHAtable.json', function(data) {
+                     // Populate series
+                     for (i = 0; i < data.length; i++){
+                         processed_json.push([data[i].key, data[i].value]);
+                     }
+
+                     // draw chart
+                     $('#container').highcharts({
+                     chart: {
+                         type: "column"
+                     },
+                     title: {
+                         text: "Data"
+                     },
+                     xAxis: {
+                         type: 'Fiscal Year',
+                         allowDecimals: false,
+                         title: {
+                             text: "Fiscal Year"
+                         }
+                     },
+                     yAxis: {
+                         title: {
+                             text: "Grant Type"
+                         }
+                     },
+                     series: [{
+ 	                    name: 'Fiscal Year',
+                         data: processed_json
+                     }]
+                 });
+             });
+         });
+	</script>
 
 </head>
 <body>
@@ -91,60 +129,8 @@
 		</div>
 	</div>
 
-	<!-- div for Highcharts chart with code under -->
-	<div id="pie" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto;"></div>
-	<div id="columnchart" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto;"></div>
-	<script type="text/javascript">
-
-
-	Highcharts.chart('pie', {
-		chart: {
-			plotBackgroundColor: null,
-			plotBorderWidth: null,
-			plotShadow: false,
-			type: 'pie'
-		},
-		title: {
-			text: 'OHA Grants by type, Fiscal Years 2013-2016'
-		},
-		tooltip: {
-			pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-		},
-		plotOptions: {
-			pie: {
-				allowPointSelect: true,
-				cursor: 'pointer',
-				dataLabels: {
-					enabled: true,
-					format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-					style: {
-						color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-					}
-				}
-			}
-		},
-		series: [{
-			name: 'Grant Type',
-			colorByPoint: true,
-			data: [{
-				name: 'Ahahui',
-				y: 21.25,
-				sliced: true,
-				selected: true
-			}, {
-				name: 'BOT Initiative',
-				y: 9.23
-			}, {
-				name: 'Community Grant',
-				y: 21.60
-			}, {
-				name: 'Sponsorship',
-				y: 47.91
-			}]
-		}]
-	});
-
-	</script>
+	<div style="width: 800px; margin: 2em auto; padding: 1em; border: 1px solid red; border-radius: 0.5em"></div>
+		<div id="container" style="height: 400px"></div>
 
 	<div ng-app="oha">
 		<div ui-view class="slide-left"></div>
