@@ -102,62 +102,42 @@
       <div id="container" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
 
       <script type="text/javascript">
-      $(function() {
-       var options = {
-          chart: {
-             renderTo: 'container',
-             defaultSeriesType: 'pie'
-          },
-          title: {
-             text: 'Projects'
-          },
-          plotOptions: {
-             pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                   enabled: true,
-                   color: '#000000',
-                   connectorColor: '#000000',
-                   formatter: function() {
-                      return '<strong>'+ this.point.name +'</strong>: '+ this.y +' %';
-                   }
-                }
-             }
-          },
-          colors: [
-             '#4572A7',
-             '#AA4643',
-             '#DB843D'
-          ],
-          series : []
-       };
+        $(function () {
+                var processed_json = new Array();
+                $.getJSON('https://api.myjson.com/bins/elvrn', function(data) {
+                    // Populate series
+                    for (i = 0; i < data.length; i++){
+                        processed_json.push([data[i].key, data[i].value]);
+                    }
 
-       var url =  "https://api.myjson.com/bins/elvrn";
-    $.getJSON(url,  function(data) {
-          // Split the lines
-          var lines = data.split('\n');
-          var series = {
-             data: []
-          };
-
-          // Iterate over the lines and add categories or series
-          $.each(lines, function(lineNo,line) {
-             var items = line.split(',');
-
-             series.data.push({
-                type:'pie',
-                name: items[0],
-                y:parseFloat(items[1])
-             });
-          });
-
-          options.series.push(series);
-          // Create the chart
-          var chart = new Highcharts.Chart(options);
-       });
-    });
-</script>
+                    // draw chart
+                    $('#container').highcharts({
+                    chart: {
+                        type: "column"
+                    },
+                    title: {
+                        text: "Student data"
+                    },
+                    xAxis: {
+                        type: 'category',
+                        allowDecimals: false,
+                        title: {
+                            text: ""
+                        }
+                    },
+                    yAxis: {
+                        title: {
+                            text: "Scores"
+                        }
+                    },
+                    series: [{
+	                    name: 'Subjects',
+                        data: processed_json
+                    }]
+                });
+            });
+        });
+    </script>
 
       <div ng-app="oha">
         <div ui-view class="slide-left"></div>
