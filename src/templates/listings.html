@@ -102,41 +102,37 @@
       <div id="container" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
 
       <script type="text/javascript">
-        $(function () {
-                var processed_json = new Array();
-                $.getJSON('https://api.myjson.com/bins/elvrn', function(data) {
-                    // Populate series
-                    for (i = 0; i < data.length; i++){
-                        processed_json.push([data[i].key, data[i].value]);
-                    }
-
-                    // draw chart
-                    $('#container').highcharts({
-                    chart: {
-                        type: "column"
-                    },
-                    title: {
-                        text: "Student data"
-                    },
-                    xAxis: {
-                        type: 'category',
-                        allowDecimals: false,
-                        title: {
-                            text: ""
-                        }
-                    },
-                    yAxis: {
-                        title: {
-                            text: "Scores"
-                        }
-                    },
-                    series: [{
-	                    name: 'Subjects',
-                        data: processed_json
-                    }]
-                });
-            });
-        });
+$(function () {
+$.get('https://raw.githubusercontent.com/ohagrantwebsite/ohagrantwebsite/master/src/OHAtable2.csv', function(data) {
+ $('#container').highcharts({
+			chart: {
+				type: "column"
+			},
+			title: {
+				text: "Fruit Consumtion"
+			},
+			xAxis: {
+				categories: []
+			},
+			yAxis: {
+				title: {
+					text: "Number of students"
+				}
+			},
+			data: {
+				csv: data
+				//csv: document.getElementById('csv').innerHTML
+			},
+			plotOptions: {
+				series: {
+					marker: {
+						enabled: false
+					}
+				}
+			}
+	});
+});
+});
     </script>
 
       <div ng-app="oha">
