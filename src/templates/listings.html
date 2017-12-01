@@ -133,7 +133,8 @@
           series : []
        };
 
-       $.get('http://127.0.0.1:5000/src/data/OHAtable.json ', function(data) {
+       var url =  "https://api.myjson.com/bins/elvrn";
+    $.getJSON(url,  function(data) {
           // Split the lines
           var lines = data.split('\n');
           var series = {
