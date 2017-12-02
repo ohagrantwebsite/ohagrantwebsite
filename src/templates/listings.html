@@ -100,328 +100,328 @@
   </div>
 
   <div id="container1" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
+  <button id="plain">Plain</button>
   <div id="locationyear" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
   <div id="strategicpriority" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
   <div id="strategicresult" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
 
   <script type="text/javascript">
-  Highcharts.chart('container1', {
+  var chart = Highcharts.chart('container1', {
     chart: {
-        type: 'column'
+      type: 'column'
     },
     title: {
-        text: 'Grant Types Per Year'
+      text: 'Grant Types Per Year'
     },
     subtitle: {
-        text: 'Grant type vs Fiscal year'
+      text: 'Grant type vs Fiscal year'
     },
     xAxis: {
-        categories: [
-            '2013',
-            '2014',
-            '2015',
-            '2016',
-        ],
-        crosshair: true
+      categories: [
+        '2013',
+        '2014',
+        '2015',
+        '2016',
+      ],
+      crosshair: true
     },
     yAxis: {
-        min: 0,
-        title: {
-            text: 'Amount of Grants per Year'
-        }
+      min: 0,
+      title: {
+        text: 'Amount of Grants per Year'
+      }
     },
     tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+      '<td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
     },
     plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
+      column: {
+        pointPadding: 0.2,
+        borderWidth: 0
+      }
     },
     series: [{
-        name: 'Community Grant',
-        data: [30, 34, 33, 27]
+      name: 'Community Grant',
+      data: [30, 34, 33, 27]
 
     }, {
-        name: 'Bot Initiative',
-        data: [10, 18, 13, 12]
+      name: 'Bot Initiative',
+      data: [10, 18, 13, 12]
 
     }, {
-        name: 'Ahahui',
-        data: [30, 30, 32, 30]
+      name: 'Ahahui',
+      data: [30, 30, 32, 30]
 
     }, {
-        name: 'Sponsorship',
-        data: [30, 30, 32, 30]
+      name: 'Sponsorship',
+      data: [30, 30, 32, 30]
 
     }]
-});
-  </script>
+  });
 
-  <script type="text/javascript">
-  Highcharts.chart('locationyear', {
+  $('#plain').click(function () {
     chart: {
-        type: 'column'
+      type: 'column'
     },
     title: {
-        text: 'Grant Types Per Year'
+      text: 'Grant Types Per Year'
     },
     subtitle: {
-        text: 'Grant type vs Fiscal year'
+      text: 'Grant type vs Fiscal year'
     },
     xAxis: {
-        categories: [
-            '2013',
-            '2014',
-            '2015',
-            '2016',
-        ],
-        crosshair: true
+      categories: [
+        '2013',
+        '2014',
+        '2015',
+        '2016',
+      ],
+      crosshair: true
     },
     yAxis: {
-        min: 0,
-        title: {
-            text: 'Amount of Grants per Year'
-        }
+      min: 0,
+      title: {
+        text: 'Amount of Grants per Year'
+      }
     },
     tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+      '<td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
     },
     plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
+      column: {
+        pointPadding: 0.2,
+        borderWidth: 0
+      }
     },
     series: [{
-        name: 'Hawaii',
-        data: [17, 17, 18, 19]
+      name: 'Hawaii',
+      data: [17, 17, 18, 19]
 
     }, {
-        name: 'Statewide',
-        data: [19, 18, 19, 20]
+      name: 'Statewide',
+      data: [19, 18, 19, 20]
 
     }, {
-        name: 'Oahu',
-        data: [82, 68, 67, 47]
+      name: 'Oahu',
+      data: [82, 68, 67, 47]
 
     }, {
-        name: 'Kauai',
-        data: [3, 8, 5, 3]
+      name: 'Kauai',
+      data: [3, 8, 5, 3]
 
     },{
-        name: 'Maui',
-        data: [12, 12, 7, 11]
+      name: 'Maui',
+      data: [12, 12, 7, 11]
 
     },{
-        name: 'Internation',
-        data: [4, 3, 2, 0]
+      name: 'Internation',
+      data: [4, 3, 2, 0]
 
     },{
-        name: 'Continent',
-        data: [11, 7, 11, 18]
+      name: 'Continent',
+      data: [11, 7, 11, 18]
 
     },{
-        name: 'Molokai',
-        data: [9, 10, 8, 8]
+      name: 'Molokai',
+      data: [9, 10, 8, 8]
 
     },{
-        name: 'Multiple',
-        data: [0, 2, 2, 2]
+      name: 'Multiple',
+      data: [0, 2, 2, 2]
 
     },{
-        name: 'Polynesia',
-        data: [0, 0, 0, 2]
+      name: 'Polynesia',
+      data: [0, 0, 0, 2]
 
     },]
+  });
 });
-  </script>
+</script>
 
-  <script type="text/javascript">
-  Highcharts.chart('strategicpriority', {
-    chart: {
-        type: 'column'
-    },
+<script type="text/javascript">
+Highcharts.chart('strategicpriority', {
+  chart: {
+    type: 'column'
+  },
+  title: {
+    text: 'Grant Types Per Year'
+  },
+  subtitle: {
+    text: 'Grant type vs Fiscal year'
+  },
+  xAxis: {
+    categories: [
+      '2013',
+      '2014',
+      '2015',
+      '2016',
+    ],
+    crosshair: true
+  },
+  yAxis: {
+    min: 0,
     title: {
-        text: 'Grant Types Per Year'
-    },
-    subtitle: {
-        text: 'Grant type vs Fiscal year'
-    },
-    xAxis: {
-        categories: [
-            '2013',
-            '2014',
-            '2015',
-            '2016',
-        ],
-        crosshair: true
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Amount of Grants per Year'
-        }
-    },
-    tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
-    plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    },
-    series: [{
-        name: 'Education',
-        data: [28, 23, 17, 14]
+      text: 'Amount of Grants per Year'
+    }
+  },
+  tooltip: {
+    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+    '<td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',
+    footerFormat: '</table>',
+    shared: true,
+    useHTML: true
+  },
+  plotOptions: {
+    column: {
+      pointPadding: 0.2,
+      borderWidth: 0
+    }
+  },
+  series: [{
+    name: 'Education',
+    data: [28, 23, 17, 14]
 
-    }, {
-        name: 'Culture',
-        data: [57, 47, 47, 48]
+  }, {
+    name: 'Culture',
+    data: [57, 47, 47, 48]
 
-    }, {
-        name: 'Economic Self-Sufficiency',
-        data: [15, 16, 15, 14]
+  }, {
+    name: 'Economic Self-Sufficiency',
+    data: [15, 16, 15, 14]
 
-    }, {
-        name: 'Health',
-        data: [29, 29, 24, 24]
+  }, {
+    name: 'Health',
+    data: [29, 29, 24, 24]
 
-    },{
-        name: 'Land & Water',
-        data: [13, 16, 13, 19]
+  },{
+    name: 'Land & Water',
+    data: [13, 16, 13, 19]
 
-    },{
-        name: 'Governance',
-        data: [17, 15, 23, 11]
+  },{
+    name: 'Governance',
+    data: [17, 15, 23, 11]
 
-    },]
+  },]
 });
-  </script>
+</script>
 
-  <script type="text/javascript">
-  Highcharts.chart('strategicresult', {
-    chart: {
-        type: 'column'
-    },
+<script type="text/javascript">
+Highcharts.chart('strategicresult', {
+  chart: {
+    type: 'column'
+  },
+  title: {
+    text: 'Grant Types Per Year'
+  },
+  subtitle: {
+    text: 'Grant type vs Fiscal year'
+  },
+  xAxis: {
+    categories: [
+      '2013',
+      '2014',
+      '2015',
+      '2016',
+    ],
+    crosshair: true
+  },
+  yAxis: {
+    min: 0,
     title: {
-        text: 'Grant Types Per Year'
-    },
-    subtitle: {
-        text: 'Grant type vs Fiscal year'
-    },
-    xAxis: {
-        categories: [
-            '2013',
-            '2014',
-            '2015',
-            '2016',
-        ],
-        crosshair: true
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Amount of Grants per Year'
-        }
-    },
-    tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
-    plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    },
-    series: [{
-        name: 'Exceed Education Standards',
-        data: [28, 23, 17, 9]
+      text: 'Amount of Grants per Year'
+    }
+  },
+  tooltip: {
+    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+    '<td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',
+    footerFormat: '</table>',
+    shared: true,
+    useHTML: true
+  },
+  plotOptions: {
+    column: {
+      pointPadding: 0.2,
+      borderWidth: 0
+    }
+  },
+  series: [{
+    name: 'Exceed Education Standards',
+    data: [28, 23, 17, 9]
 
-    }, {
-        name: 'Participate in Culture',
-        data: [11, 14, 15, 11]
+  }, {
+    name: 'Participate in Culture',
+    data: [11, 14, 15, 11]
 
-    }, {
-        name: 'Increase Family Income',
-        data: [8, 8, 8, 6]
+  }, {
+    name: 'Increase Family Income',
+    data: [8, 8, 8, 6]
 
-    }, {
-        name: 'Decrease Chronic Disease Rates',
-        data: [16, 12, 7, 11]
+  }, {
+    name: 'Decrease Chronic Disease Rates',
+    data: [16, 12, 7, 11]
 
-    },{
-        name: 'Build Stability in Housing',
-        data: [7, 8, 7, 8]
+  },{
+    name: 'Build Stability in Housing',
+    data: [7, 8, 7, 8]
 
-    },{
-        name: 'Achieve Pae Aina Sustainability',
-        data: [13, 16, 13, 19]
+  },{
+    name: 'Achieve Pae Aina Sustainability',
+    data: [13, 16, 13, 19]
 
-    },{
-        name: 'Value History and Culture',
-        data: [46, 33, 32, 42]
+  },{
+    name: 'Value History and Culture',
+    data: [46, 33, 32, 42]
 
-    },{
-        name: 'Priority Level',
-        data: [17, 15, 23, 11]
+  },{
+    name: 'Priority Level',
+    data: [17, 15, 23, 11]
 
-    },{
-        name: 'Improve Family Lifestyle',
-        data: [13, 17, 17, 13]
+  },{
+    name: 'Improve Family Lifestyle',
+    data: [13, 17, 17, 13]
 
-    },]
+  },]
 });
-  </script>
+</script>
 
-  <div ng-app="oha">
-    <div ui-view class="slide-left"></div>
-  </div>
+<div ng-app="oha">
+  <div ui-view class="slide-left"></div>
+</div>
 
-  <footer>
-    <div style="text-align:center" class="footer">
-      <hr>
-      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Contact Information <i class="fa fa-angle-down" style="font-size:18px"></i></button>
-      <div id="demo" class="collapse">
-        <br />
-        <p><a href="https://github.com/ohagrantwebsite/ohagrantwebsite">Team Lucio</a></p>
-        <p>Department of Information and Computer Sciences</p>
-        <p>University of Hawaii</p>
-        <p>Honolulu, HI 96822</p>
-      </div>
+<footer>
+  <div style="text-align:center" class="footer">
+    <hr>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Contact Information <i class="fa fa-angle-down" style="font-size:18px"></i></button>
+    <div id="demo" class="collapse">
+      <br />
+      <p><a href="https://github.com/ohagrantwebsite/ohagrantwebsite">Team Lucio</a></p>
+      <p>Department of Information and Computer Sciences</p>
+      <p>University of Hawaii</p>
+      <p>Honolulu, HI 96822</p>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- Bootstrap core JavaScript
-  ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
 
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-  <!--
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
-  <script src="static/js/angularapp.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+<script src="static/js/angularapp.js"></script>
 -->
 
 </body>
