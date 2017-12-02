@@ -104,339 +104,126 @@
   </div>
 
   <div class="container">
-  <h2>Fiscal Year Per Grants</h2>
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#home">Grant Type</a></li>
-    <li><a href="#menu1">Location</a></li>
-    <li><a href="#menu2">Strateic Priority</a></li>
-    <li><a href="#menu3">Strategic Result</a></li>
-  </ul>
+    <h2>Fiscal Year Per Grants</h2>
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home">Grant Type</a></li>
+      <li><a href="#menu1">Location</a></li>
+      <li><a href="#menu2">Strateic Priority</a></li>
+      <li><a href="#menu3">Strategic Result</a></li>
+    </ul>
 
-  <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
-      <div id="container1" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
-    </div>
-    <div id="menu1" class="tab-pane fade">
-      <div id="locationyear" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
-    </div>
-    <div id="menu2" class="tab-pane fade">
-      <div id="strategicpriority" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
-    </div>
-    <div id="menu3" class="tab-pane fade">
-      <div id="strategicresult" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
-    </div>
-  </div>
-</div>
-
-<script type="text/javascript">
-  Highcharts.chart('container1', {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        text: 'Grant type Per Fiscal year'
-    },
-    xAxis: {
-        categories: [
-            '2013',
-            '2014',
-            '2015',
-            '2016',
-        ],
-        crosshair: true
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Amount of Grants per Year'
-        }
-    },
-    tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
-    plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    },
-    series: [{
-        name: 'Community Grant',
-        data: [30, 34, 33, 27]
-
-    }, {
-        name: 'Bot Initiative',
-        data: [10, 18, 13, 12]
-
-    }, {
-        name: 'Ahahui',
-        data: [30, 30, 32, 30]
-
-    }, {
-        name: 'Sponsorship',
-        data: [30, 30, 32, 30]
-
-    }]
-});
-  </script>
-
-  <script type="text/javascript">
-  Highcharts.chart('locationyear', {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        text: 'Grant Types Per Location'
-    },
-    xAxis: {
-        categories: [
-            '2013',
-            '2014',
-            '2015',
-            '2016',
-        ],
-        crosshair: true
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Amount of Grants per Year'
-        }
-    },
-    tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
-    plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    },
-    series: [{
-        name: 'Hawaii',
-        data: [17, 17, 18, 19]
-
-    }, {
-        name: 'Statewide',
-        data: [19, 18, 19, 20]
-
-    }, {
-        name: 'Oahu',
-        data: [82, 68, 67, 47]
-
-    }, {
-        name: 'Kauai',
-        data: [3, 8, 5, 3]
-
-    },{
-        name: 'Maui',
-        data: [12, 12, 7, 11]
-
-    },{
-        name: 'Internation',
-        data: [4, 3, 2, 0]
-
-    },{
-        name: 'Continent',
-        data: [11, 7, 11, 18]
-
-    },{
-        name: 'Molokai',
-        data: [9, 10, 8, 8]
-
-    },{
-        name: 'Multiple',
-        data: [0, 2, 2, 2]
-
-    },{
-        name: 'Polynesia',
-        data: [0, 0, 0, 2]
-
-    },]
-});
-  </script>
-
-  <script type="text/javascript">
-  Highcharts.chart('strategicpriority', {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        text: 'Grant Types Per Strategic Priority'
-    },
-    xAxis: {
-        categories: [
-            '2013',
-            '2014',
-            '2015',
-            '2016',
-        ],
-        crosshair: true
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Amount of Grants per Year'
-        }
-    },
-    tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
-    plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    },
-    series: [{
-        name: 'Education',
-        data: [28, 23, 17, 14]
-
-    }, {
-        name: 'Culture',
-        data: [57, 47, 47, 48]
-
-    }, {
-        name: 'Economic Self-Sufficiency',
-        data: [15, 16, 15, 14]
-
-    }, {
-        name: 'Health',
-        data: [29, 29, 24, 24]
-
-    },{
-        name: 'Land & Water',
-        data: [13, 16, 13, 19]
-
-    },{
-        name: 'Governance',
-        data: [17, 15, 23, 11]
-
-    },]
-});
-  </script>
-
-  <script type="text/javascript">
-  Highcharts.chart('strategicresult', {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        text: 'Grant Types Strategic Result'
-    },
-    xAxis: {
-        categories: [
-            '2013',
-            '2014',
-            '2015',
-            '2016',
-        ],
-        crosshair: true
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Amount of Grants per Year'
-        }
-    },
-    tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
-    plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    },
-    series: [{
-        name: 'Exceed Education Standards',
-        data: [28, 23, 17, 9]
-
-    }, {
-        name: 'Participate in Culture',
-        data: [11, 14, 15, 11]
-
-    }, {
-        name: 'Increase Family Income',
-        data: [8, 8, 8, 6]
-
-    }, {
-        name: 'Decrease Chronic Disease Rates',
-        data: [16, 12, 7, 11]
-
-    },{
-        name: 'Build Stability in Housing',
-        data: [7, 8, 7, 8]
-
-    },{
-        name: 'Achieve Pae Aina Sustainability',
-        data: [13, 16, 13, 19]
-
-    },{
-        name: 'Value History and Culture',
-        data: [46, 33, 32, 42]
-
-    },{
-        name: 'Priority Level',
-        data: [17, 15, 23, 11]
-
-    },{
-        name: 'Improve Family Lifestyle',
-        data: [13, 17, 17, 13]
-
-    },]
-});
-  </script>
-
-<div ng-app="oha">
-  <div ui-view class="slide-left"></div>
-</div>
-
-<footer>
-  <div style="text-align:center" class="footer">
-    <hr>
-    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Contact Information <i class="fa fa-angle-down" style="font-size:18px"></i></button>
-    <div id="demo" class="collapse">
-      <br />
-      <p><a href="https://github.com/ohagrantwebsite/ohagrantwebsite">Team Lucio</a></p>
-      <p>Department of Information and Computer Sciences</p>
-      <p>University of Hawaii</p>
-      <p>Honolulu, HI 96822</p>
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <div id="container1" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
+      </div>
+      <div id="menu1" class="tab-pane fade">
+        <div id="locationyear" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
+      </div>
+      <div id="menu2" class="tab-pane fade">
+        <div id="strategicpriority" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
+      </div>
+      <div id="menu3" class="tab-pane fade">
+        <div id="strategicresult" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
+      </div>
     </div>
   </div>
-</footer>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+  <!--Used JSCompress to compress the javascript-->
+  <script type="text/javascript">
+  Highcharts.chart("container1",{chart:{type:"column"},title:{text:"Grant type Per Fiscal year"},xAxis:{categories:["2013","2014","2015","2016"],crosshair:!0},yAxis:{min:0,title:{text:"Amount of Grants per Year"}},tooltip:{headerFormat:'<span style="font-size:10px">{point.key}</span><table>',pointFormat:'<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',footerFormat:"</table>",shared:!0,useHTML:!0},plotOptions:{column:{pointPadding:.2,borderWidth:0}},series:[{name:"Community Grant",data:[30,34,33,27]},{name:"Bot Initiative",data:[10,18,13,12]},{name:"Ahahui",data:[30,30,32,30]},{name:"Sponsorship",data:[30,30,32,30]}]});
+  </script>
 
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script>
-$(document).ready(function(){
+  <script type="text/javascript">
+  Highcharts.chart("locationyear",{chart:{type:"column"},title:{text:"Grant Types Per Location"},xAxis:{categories:["2013","2014","2015","2016"],crosshair:!0},yAxis:{min:0,title:{text:"Amount of Grants per Year"}},tooltip:{headerFormat:'<span style="font-size:10px">{point.key}</span><table>',pointFormat:'<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',footerFormat:"</table>",shared:!0,useHTML:!0},plotOptions:{column:{pointPadding:.2,borderWidth:0}},series:[{name:"Hawaii",data:[17,17,18,19]},{name:"Statewide",data:[19,18,19,20]},{name:"Oahu",data:[82,68,67,47]},{name:"Kauai",data:[3,8,5,3]},{name:"Maui",data:[12,12,7,11]},{name:"Internation",data:[4,3,2,0]},{name:"Continent",data:[11,7,11,18]},{name:"Molokai",data:[9,10,8,8]},{name:"Multiple",data:[0,2,2,2]},{name:"Polynesia",data:[0,0,0,2]}]});
+  </script>
+
+  <script type="text/javascript">
+  Highcharts.chart("strategicpriority",{chart:{type:"column"},title:{text:"Grant Types Per Strategic Priority"},xAxis:{categories:["2013","2014","2015","2016"],crosshair:!0},yAxis:{min:0,title:{text:"Amount of Grants per Year"}},tooltip:{headerFormat:'<span style="font-size:10px">{point.key}</span><table>',pointFormat:'<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',footerFormat:"</table>",shared:!0,useHTML:!0},plotOptions:{column:{pointPadding:.2,borderWidth:0}},series:[{name:"Education",data:[28,23,17,14]},{name:"Culture",data:[57,47,47,48]},{name:"Economic Self-Sufficiency",data:[15,16,15,14]},{name:"Health",data:[29,29,24,24]},{name:"Land & Water",data:[13,16,13,19]},{name:"Governance",data:[17,15,23,11]}]});
+  </script>
+
+  <script type="text/javascript">
+  Highcharts.chart("strategicresult",{chart:{type:"column"},title:{text:"Grant Types Strategic Result"},xAxis:{categories:["2013","2014","2015","2016"],crosshair:!0},yAxis:{min:0,title:{text:"Amount of Grants per Year"}},tooltip:{headerFormat:'<span style="font-size:10px">{point.key}</span><table>',pointFormat:'<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.1f} Grants</b></td></tr>',footerFormat:"</table>",shared:!0,useHTML:!0},plotOptions:{column:{pointPadding:.2,borderWidth:0}},series:[{name:"Exceed Education Standards",data:[28,23,17,9]},{name:"Participate in Culture",data:[11,14,15,11]},{name:"Increase Family Income",data:[8,8,8,6]},{name:"Decrease Chronic Disease Rates",data:[16,12,7,11]},{name:"Build Stability in Housing",data:[7,8,7,8]},{name:"Achieve Pae Aina Sustainability",data:[13,16,13,19]},{name:"Value History and Culture",data:[46,33,32,42]},{name:"Priority Level",data:[17,15,23,11]},{name:"Improve Family Lifestyle",data:[13,17,17,13]}]});
+  </script>
+
+  <div class="container">
+    <h2>Amount Per Fiscal Year</h2>
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home2">Year</a></li>
+      <li><a href="#menu4">Location</a></li>
+      <li><a href="#menu5">Grant Type</a></li>
+      <li><a href="#menu6">Strateic Priority</a></li>
+      <li><a href="#menu7">Strategic Result</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="home2" class="tab-pane fade in active">
+        <div id="amountyear" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
+      </div>
+      <div id="menu4" class="tab-pane fade">
+        <div id="locationamount" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
+      </div>
+      <div id="menu5" class="tab-pane fade">
+        <div id="granttypeamount" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
+      </div>
+      <div id="menu6" class="tab-pane fade">
+        <div id="priorityamount" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
+      </div>
+      <div id="menu7" class="tab-pane fade">
+        <div id="resultamount" style="width:1024px; min-width: 310px; height: 400px; margin: 0 auto"></div>
+      </div>
+    </div>
+  </div>
+
+  <!--Used JSCompress to compress the javascript-->
+  <script type="text/javascript">
+  Highcharts.chart("amountyear",{chart:{plotBackgroundColor:null,plotBorderWidth:null,plotShadow:!1,type:"pie"},title:{text:"Grant Types Per Amount"},tooltip:{pointFormat:"{series.name}: $<b>{point.y:.1f}</b>"},plotOptions:{pie:{allowPointSelect:!0,cursor:"pointer",showInLegend:!0,dataLabels:{enabled:!0,format:"<b>{point.name}</b>: ${point.y:.1f}",style:{color:Highcharts.theme&&Highcharts.theme.contrastTextColor||"black"}}}},series:[{name:"Grant Types",colorByPoint:!0,data:[{name:"2013",y:12596666.6},{name:"2014",y:12499149.23,sliced:!0,selected:!0},{name:"2015",y:13705486.95},{name:"2016",y:10879650.99}]}]});
+  </script>
+
+  <script type="text/javascript">
+  Highcharts.chart("locationamount",{chart:{plotBackgroundColor:null,plotBorderWidth:null,plotShadow:!1,type:"pie"},title:{text:"Location Per Amount"},tooltip:{pointFormat:"{series.name}: $<b>{point.y:.1f}</b>"},plotOptions:{pie:{allowPointSelect:!0,cursor:"pointer",showInLegend:!0,dataLabels:{enabled:!0,format:"<b>{point.name}</b>: ${point.y:.1f}",style:{color:Highcharts.theme&&Highcharts.theme.contrastTextColor||"black"}}}},series:[{name:"Location",colorByPoint:!0,data:[{name:"Statewide",y:31522249.99},{name:"Hawaii",y:4361769,sliced:!0,selected:!0},{name:"Oahu",y:8533540.83},{name:"Kauai",y:855098},{name:"Multiple",y:821975},{name:"Maui",y:2095782},{name:"International",y:120211.21},{name:"Continent",y:334522.14},{name:"Molokai",y:962654}]}]});
+  </script>
+
+  <script type="text/javascript">
+  Highcharts.chart("granttypeamount",{chart:{plotBackgroundColor:null,plotBorderWidth:null,plotShadow:!1,type:"pie"},title:{text:"Grant Type Per Amount"},tooltip:{pointFormat:"{series.name}: $<b>{point.y:.1f}</b>"},plotOptions:{pie:{allowPointSelect:!0,cursor:"pointer",showInLegend:!0,dataLabels:{enabled:!0,format:"<b>{point.name}</b>: ${point.y:.1f}",style:{color:Highcharts.theme&&Highcharts.theme.contrastTextColor||"black"}}}},series:[{name:"Grant Types",colorByPoint:!0,data:[{name:"Ahahui",y:810266},{name:"BOT Initiative",y:31468377,sliced:!0,selected:!0},{name:"Community Grant",y:15165295.6},{name:"Sponsorship",y:2237015.17}]}]});
+  </script>
+
+  <script type="text/javascript">
+  Highcharts.chart("priorityamount",{chart:{plotBackgroundColor:null,plotBorderWidth:null,plotShadow:!1,type:"pie"},title:{text:"Strategic Priority Per Amount"},tooltip:{pointFormat:"{series.name}: $<b>{point.y:.1f}</b>"},plotOptions:{pie:{allowPointSelect:!0,cursor:"pointer",showInLegend:!0,dataLabels:{enabled:!0,format:"<b>{point.name}</b>: ${point.y:.1f}",style:{color:Highcharts.theme&&Highcharts.theme.contrastTextColor||"black"}}}},series:[{name:"Strategic Priority",colorByPoint:!0,data:[{name:"Culture",y:3863304.81},{name:"Economic Self-Sufficiency",y:17312712,sliced:!0,selected:!0},{name:"Health",y:7017674},{name:"Land & Water",y:3478098.99},{name:"Governance",y:3486261.97},{name:"Education",y:14522902}]}]});
+  </script>
+
+  <script type="text/javascript">
+  Highcharts.chart("resultamount",{chart:{plotBackgroundColor:null,plotBorderWidth:null,plotShadow:!1,type:"pie"},title:{text:"Strategic Result Per Amount"},tooltip:{pointFormat:"{series.name}: $<b>{point.y:.1f}</b>"},plotOptions:{pie:{allowPointSelect:!0,cursor:"pointer",showInLegend:!0,dataLabels:{enabled:!0,format:"<b>{point.name}</b>: ${point.y:.1f}",style:{color:Highcharts.theme&&Highcharts.theme.contrastTextColor||"black"}}}},series:[{name:"Strategic Result",colorByPoint:!0,data:[{name:"Exceed Education Standards",y:14515652},{name:"Build Stability in Housing",y:31468377,sliced:!0,selected:!0},{name:"Participate in Culture",y:1955372},{name:"Achieve Pae Aina Sustainability",y:3478098.99},{name:"Increase Family Income",y:3301550},{name:"Value History and Culture",y:1915182.81},{name:"Decrease Chronic Disease Rates",y:4062546},{name:"Priority Level",y:3486261.97},{name:"Improve Family Lifestyle",y:2955128}]}]});
+  </script>
+
+  <div ng-app="oha">
+    <div ui-view class="slide-left"></div>
+  </div>
+
+  <footer>
+    <div style="text-align:center" class="footer">
+      <hr>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Contact Information <i class="fa fa-angle-down" style="font-size:18px"></i></button>
+      <div id="demo" class="collapse">
+        <br />
+        <p><a href="https://github.com/ohagrantwebsite/ohagrantwebsite">Team Lucio</a></p>
+        <p>Department of Information and Computer Sciences</p>
+        <p>University of Hawaii</p>
+        <p>Honolulu, HI 96822</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script>
+  $(document).ready(function(){
     $(".nav-tabs a").click(function(){
-        $(this).tab('show');
+      $(this).tab('show');
     });
-});
-</script>
+  });
+  </script>
 </body>
 </html>
