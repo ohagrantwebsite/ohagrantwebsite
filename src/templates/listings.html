@@ -176,7 +176,7 @@
 
   <!--Used JSCompress to compress the javascript-->
   <script type="text/javascript">
-  Highcharts.chart("amountyear",{chart:{plotBackgroundColor:null,plotBorderWidth:null,plotShadow:!1,type:"pie"},title:{text:"Grant Types Per Amount"},tooltip:{pointFormat:"{series.name}: $<b>{point.y:.1f}</b>"},plotOptions:{pie:{allowPointSelect:!0,cursor:"pointer",showInLegend:!0,dataLabels:{enabled:!0,format:"<b>{point.name}</b>: ${point.y:.1f}",style:{color:Highcharts.theme&&Highcharts.theme.contrastTextColor||"black"}}}},series:[{name:"Grant Types",colorByPoint:!0,data:[{name:"2013",y:12596666.6},{name:"2014",y:12499149.23,sliced:!0,selected:!0},{name:"2015",y:13705486.95},{name:"2016",y:10879650.99}]}]});
+  Highcharts.chart("amountyear",{chart:{plotBackgroundColor:null,plotBorderWidth:null,plotShadow:!1,type:"pie"},title:{text:"Grant Types Per Amount"},tooltip:{pointFormat:"{series.name}: $<b>{point.y:.1f}</b>"},plotOptions:{pie:{allowPointSelect:!0,cursor:"pointer",showInLegend:!0,dataLabels:{enabled:!0,format:"<b>{point.name}</b>: ${point.y:.1f}",style:{color:Highcharts.theme&&Highcharts.theme.contrastTextColor||"black"}}}},series:[{name:"Fiscal Year",colorByPoint:!0,data:[{name:"2013",y:12596666.6,drilldown:"granttype1"},{name:"2014",y:12499149.23,sliced:!0,selected:!0,drilldown:"granttype2"},{name:"2015",y:13705486.95,drilldown:"granttype3"},{name:"2016",y:10879650.99,drilldown:"granttype4"}]}],drilldown:{series:[{name:"Grant Type",id:"granttype1",data:[["Ahahui",210266],["BOT Initiative",7842140],["Community Grant",3764584],["Sponsorship",779677]]},{name:"Grant Type",id:"granttype2",data:[["Ahahui",2e5],["BOT Initiative",7649811],["Community Grant",4143102],["Sponsorship",506236.2]]},{name:"Grant Type",id:"granttype3",data:[["Ahahui",2e5],["BOT Initiative",9417958],["Community Grant",3538180],["Sponsorship",549349]]},{name:"Grant Type",id:"granttype4",data:[["Ahahui",2e5],["BOT Initiative",6558468],["Community Grant",3719430],["Sponsorship",401753]]}]}});
   </script>
 
   <script type="text/javascript">
@@ -192,125 +192,7 @@
   </script>
 
   <script type="text/javascript">
-  Highcharts.chart("resultamount", {
-    chart: {
-      plotBackgroundColor: null,
-      plotBorderWidth: null,
-      plotShadow: !1,
-      type: "pie"
-    },
-    title: {
-      text: "Strategic Result Per Amount"
-    },
-    tooltip: {
-      pointFormat: "{series.name}: $<b>{point.y:.1f}</b>"
-    },
-    plotOptions: {
-      pie: {
-        allowPointSelect: !0,
-        cursor: "pointer",
-        showInLegend: !0,
-        dataLabels: {
-          enabled: !0,
-          format: "<b>{point.name}</b>: ${point.y:.1f}",
-          style: {
-            color: Highcharts.theme && Highcharts.theme.contrastTextColor || "black"
-          }
-        }
-      }
-    },
-    series: [{
-      name: "Strategic Result",
-      colorByPoint: !0,
-      data: [{
-        name: "Exceed Education Standards",
-        y: 14515652,
-        drilldown: 'IE'
-      }, {
-        name: "Build Stability in Housing",
-        y: 31468377,
-        drilldown: 'Chrome',
-        sliced: !0,
-        selected: !0
-      }, {
-        name: "Participate in Culture",
-        y: 1955372,
-        drilldown: 'Firefox'
-      }, {
-        name: "Achieve Pae Aina Sustainability",
-        y: 3478098.99,
-        drilldown: 'Safari'
-      }, {
-        name: "Increase Family Income",
-        y: 3301550,
-        drilldown: 'Opera'
-      }, {
-        name: "Value History and Culture",
-        y: 1915182.81,
-        drilldown: null
-      }, {
-        name: "Decrease Chronic Disease Rates",
-        y: 4062546,
-        drilldown: null
-      }, {
-        name: "Priority Level",
-        y: 3486261.97,
-        drilldown: null
-      }, {
-        name: "Improve Family Lifestyle",
-        y: 2955128,
-        drilldown: null
-      }]
-    }],
-    drilldown: {
-      series: [{
-        name: 'IE',
-        id: 'IE',
-        data: [
-          ['v11.0', 24.13],
-          ['v8.0', 17.2],
-          ['v9.0', 8.11],
-          ['v10.0', 5.33]
-        ]
-      }, {
-        name: 'Chrome',
-        id: 'Chrome',
-        data: [
-          ['v40.0', 5],
-          ['v41.0', 4.32],
-          ['v42.0', 3.68],
-          ['v39.0', 2.96]
-        ]
-      }, {
-        name: 'Firefox',
-        id: 'Firefox',
-        data: [
-          ['v35', 2.76],
-          ['v36', 2.32],
-          ['v37', 2.31],
-        ]
-      }, {
-        name: 'Safari',
-        id: 'Safari',
-        data: [
-          ['v8.0', 2.56],
-          ['v7.1', 0.77],
-          ['v5.1', 0.42],
-          ['v5.0', 0.3]
-        ]
-      }, {
-        name: 'Opera',
-        id: 'Opera',
-        data: [
-          ['v12.x', 0.34],
-          ['v28', 0.24],
-          ['v27', 0.17],
-          ['v29', 0.16]
-        ]
-      }]
-    }
-  });
-
+  Highcharts.chart("resultamount",{chart:{plotBackgroundColor:null,plotBorderWidth:null,plotShadow:!1,type:"pie"},title:{text:"Strategic Result Per Amount"},tooltip:{pointFormat:"{series.name}: $<b>{point.y:.1f}</b>"},plotOptions:{pie:{allowPointSelect:!0,cursor:"pointer",showInLegend:!0,dataLabels:{enabled:!0,format:"<b>{point.name}</b>: ${point.y:.1f}",style:{color:Highcharts.theme&&Highcharts.theme.contrastTextColor||"black"}}}},series:[{name:"Strategic Result",colorByPoint:!0,data:[{name:"Exceed Education Standards",y:14515652},{name:"Build Stability in Housing",y:31468377,sliced:!0,selected:!0},{name:"Participate in Culture",y:1955372},{name:"Achieve Pae Aina Sustainability",y:3478098.99},{name:"Increase Family Income",y:3301550},{name:"Value History and Culture",y:1915182.81},{name:"Decrease Chronic Disease Rates",y:4062546},{name:"Priority Level",y:3486261.97},{name:"Improve Family Lifestyle",y:2955128}]}]});
   </script>
 
   <div ng-app="oha">
